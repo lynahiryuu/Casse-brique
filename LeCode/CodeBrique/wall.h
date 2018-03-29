@@ -1,11 +1,17 @@
 #ifndef WALL_H
 #define WALL_H
+#include "reflector.h"
 
-
-class Wall : public Reflector
-{
+class Wall : public Reflector{
 public:
-    Wall();
+    Wall(bool destructor);
+    double Bounce(double x,double y,double speedX,double speedY);
+private:
+    double x1_;
+    double y1_;
+    double x2_;
+    double y2_;
+    bool destructor_;
 };
 
 #endif // WALL_H

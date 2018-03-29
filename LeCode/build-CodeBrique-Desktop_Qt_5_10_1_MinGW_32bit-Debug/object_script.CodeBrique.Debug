@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\reflector.o
+./debug\wall.o
+./debug\brick.o
+./debug\paddle.o
+./debug\ball.o
+./debug\player.o
+./debug\model.o
+./debug\moc_mainwindow.o
+);

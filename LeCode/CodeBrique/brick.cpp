@@ -1,6 +1,31 @@
 #include "brick.h"
 
-Brick::Brick()
+Brick::Brick(int x, int y)
 {
+    x_=x;
+    y_=y;
+    heigth_=2;
+    width_=5;
+}
 
+void Brick::Bounce(){
+
+}
+
+
+//Getters
+int Brick::getX(){
+    return x_;
+}
+int Brick::getY(){
+    return y_;
+}
+
+//Setters
+
+void Brick::setX(int x){
+    x_=x;
+}
+void Brick::setY(int y){
+    y_=y;
 }

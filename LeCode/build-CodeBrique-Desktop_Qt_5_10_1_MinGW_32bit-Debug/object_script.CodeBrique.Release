@@ -1,0 +1,12 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\reflector.o
+./release\wall.o
+./release\brick.o
+./release\paddle.o
+./release\ball.o
+./release\player.o
+./release\model.o
+./release\moc_mainwindow.o
+);
