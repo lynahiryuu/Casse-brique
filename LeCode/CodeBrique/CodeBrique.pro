@@ -25,10 +25,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    reflector.cpp \
+    wall.cpp \
+    brick.cpp \
+    paddle.cpp \
+    ball.cpp \
+    player.cpp \
+    model.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    reflector.h \
+    wall.h \
+    brick.h \
+    paddle.h \
+    ball.h \
+    player.h \
+    model.h
 
 FORMS += \
         mainwindow.ui
