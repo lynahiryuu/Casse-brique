@@ -1,12 +1,13 @@
 #include "brick.h"
 
-Brick::Brick(int x, int y)
+Brick::Brick(int x, int y):Reflector()
 {
     x_=x;
     y_=y;
     heigth_=2;
     width_=5;
 }
+
 
 void Brick::Bounce(){
 

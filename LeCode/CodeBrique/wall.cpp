@@ -1,6 +1,6 @@
 #include "wall.h"
 
-Wall::Wall(bool destructor)
+Wall::Wall(bool destructor):Reflector()
 {
     destructor_=destructor;
     x1_=1;
@@ -10,7 +10,7 @@ Wall::Wall(bool destructor)
 
 }
 
-double Wall::Bounce(double x, double y, double speedX,double speedY){
+void Wall::Bounce(double x, double y, double speedX,double speedY){
     // On suppose que l'origine est en bas à gauche.
     if( (y1_ >y) && (y2_>y)){
         //Mur du haut

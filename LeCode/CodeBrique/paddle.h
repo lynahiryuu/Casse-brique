@@ -7,6 +7,7 @@ class Paddle : public Reflector
 {
 public:
     Paddle();
+    virtual void Bounce();
 private:
     double x_;
     double heigth_;

@@ -7,11 +7,11 @@ class Brick : public Reflector
 {
 public:
     Brick(int x, int y);
-    void Bounce();
-    int getX();
-    int getY();
-    void setX(int x);
-    void setY(int y);
+    virtual void Bounce();
+    virtual int getX();
+    virtual int getY();
+    virtual void setX(int x);
+    virtual void setY(int y);
 private:
     int x_;
     int y_;

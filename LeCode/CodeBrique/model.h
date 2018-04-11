@@ -13,7 +13,7 @@ public:
     Model();
     void StartNewGame();
 private:
-    vector<Brick> *bricks;
+    //vector<Brick> *bricks;
     vector<Wall> *walls;
     Ball *ball_;
     Paddle *paddle_;

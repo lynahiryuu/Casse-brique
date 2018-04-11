@@ -2,6 +2,7 @@
 #include <random>
 #include <vector>
 #include <algorithm>
+
 Model::Model()
 {
 
@@ -10,7 +11,6 @@ Model::Model()
 
 void Model::StartNewGame(){
     int NbBricks=rand()%50+50;
-    bricks->resize(0);
 
     vector<int> *ListPos;
     int tempo=-1;
@@ -23,7 +23,8 @@ void Model::StartNewGame(){
 
     for(int i=0;i<NbBricks;i++){
         int pos=ListPos->at(i);
-        Brick b=Brick(1,2);
+        //Brick b=new Brick(1,2);
+        //Wall w= new Wall(true);
         //bricks->push_back(b);
         // ATTENTION CA MARCHE PAS!
         //bricks->push_back();

@@ -7,6 +7,7 @@ class Reflector
 public:
     Reflector();
     virtual void Bounce()=0;
+
 };
 
 #endif // REFLECTOR_H
