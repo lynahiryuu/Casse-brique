@@ -1,6 +1,6 @@
 #include "brick.h"
 
-Brick::Brick(int x, int y)
+Brick::Brick(int x, int y):Reflector()
 {
     x_=x;
     y_=y;
@@ -8,7 +8,7 @@ Brick::Brick(int x, int y)
     width_=5;
 }
 
-void Brick::Bounce(){
+void Brick::Bounce(double x,double y,double speedX,double speedY){
 
 }
 

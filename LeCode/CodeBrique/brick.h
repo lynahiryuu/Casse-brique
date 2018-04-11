@@ -7,7 +7,7 @@ class Brick : public Reflector
 {
 public:
     Brick(int x, int y);
-    void Bounce();
+    virtual void Bounce(double x,double y,double speedX,double speedY);
     int getX();
     int getY();
     void setX(int x);

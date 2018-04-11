@@ -5,7 +5,7 @@
 class Wall : public Reflector{
 public:
     Wall(bool destructor);
-    double Bounce(double x,double y,double speedX,double speedY);
+    void Bounce(double x,double y,double speedX,double speedY) override;
 private:
     double x1_;
     double y1_;
