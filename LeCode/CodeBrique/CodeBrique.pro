@@ -32,7 +32,9 @@ SOURCES += \
     paddle.cpp \
     ball.cpp \
     player.cpp \
-    model.cpp
+    model.cpp \
+    openglview.cpp \
+    openglview.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -42,7 +44,8 @@ HEADERS += \
     paddle.h \
     ball.h \
     player.h \
-    model.h
+    model.h \
+    openglview.h
 
 FORMS += \
         mainwindow.ui
