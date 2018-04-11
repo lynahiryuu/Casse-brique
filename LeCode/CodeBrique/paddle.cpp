@@ -5,6 +5,7 @@ Paddle::Paddle():Reflector()
 
 }
 
-void Paddle::Bounce(){
+
+void Paddle::Bounce(double x, double y, double speedX, double speedY){
 
 }

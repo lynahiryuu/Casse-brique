@@ -9,7 +9,7 @@ Brick::Brick(int x, int y):Reflector()
 }
 
 
-void Brick::Bounce(){
+void Brick::Bounce(double x,double y,double speedX,double speedY){
 
 }
 

@@ -10,8 +10,10 @@ Wall::Wall(bool destructor):Reflector()
 
 }
 
-void Wall::Bounce(double x, double y, double speedX,double speedY){
-    // On suppose que l'origine est en bas à gauche.
+
+void Wall::Bounce(double x, double y, double speedX, double speedY){
+    /*// On suppose que l'origine est en bas à gauche.
+>>>>>>> c9098ad7e9e0afabfde72f722424cf5731c39832
     if( (y1_ >y) && (y2_>y)){
         //Mur du haut
     }
@@ -23,7 +25,8 @@ void Wall::Bounce(double x, double y, double speedX,double speedY){
     }
     else{
         // Erreur
-    }
+    }*/
+
 }
 
 

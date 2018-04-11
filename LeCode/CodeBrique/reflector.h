@@ -6,8 +6,7 @@ class Reflector
 {
 public:
     Reflector();
-    virtual void Bounce()=0;
-
+    virtual void Bounce(double x,double y,double speedX,double speedY)=0;
 };
 
 #endif // REFLECTOR_H
