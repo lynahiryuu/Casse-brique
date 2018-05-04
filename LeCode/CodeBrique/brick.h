@@ -1,6 +1,7 @@
 #ifndef BRICK_H
 #define BRICK_H
 #include "reflector.h"
+#include <GL/glu.h>
 
 
 class Brick : public Reflector
@@ -13,11 +14,13 @@ public:
     int getY();
     void setX(int x);
     void setY(int y);
+    void Display() const;
 private:
     int x_;
     int y_;
     double heigth_;
     double width_;
+    GLUquadric *brick_quadric_;
 };
 
 #endif // BRICK_H

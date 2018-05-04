@@ -1,6 +1,8 @@
 #ifndef MYGLWIDGET_H
 #define MYGLWIDGET_H
 #include <QGLWidget>
+#include <GL/glu.h>
+
 
 
 using namespace std;

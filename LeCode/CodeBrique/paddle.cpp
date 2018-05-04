@@ -7,8 +7,12 @@ Paddle::Paddle(double x, double y):Reflector()
  x_ = x;
  heigth_ = 2;
  width_ = 8;
+ paddle_quadric_=gluNewQuadric();
 }
 
+Paddle::~Paddle(){
+    gluDeleteQuadric(paddle_quadric_);
+}
 
 void Paddle::Bounce(double ball_x, double ball_y, double speed_ball_X, double speed_ball_Y){
     // La balle change cap :
@@ -36,6 +40,9 @@ void Paddle::Bounce(double ball_x, double ball_y, double speed_ball_X, double sp
 
 }
 
+void Paddle::Display() const{
+
+}
 
 void Paddle::setX(int x)
 {
