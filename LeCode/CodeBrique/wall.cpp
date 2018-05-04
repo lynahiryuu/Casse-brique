@@ -7,9 +7,16 @@ Wall::Wall(int x, int y, int x2, int y2):Reflector()
     x2_= x2;
     y1_=y;
     y2_= y2;
+    wall_quadric_=gluNewQuadric();
 
 }
 
+Wall::~Wall(){
+    gluDeleteQuadric(wall_quadric_);
+}
+void Wall::Display()const{
+
+}
 
 void Wall::Bounce(double ball_x, double ball_y, double speed_ball_X, double speed_ball_Y){
     // La balle change cap :

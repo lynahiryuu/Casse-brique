@@ -49,5 +49,7 @@ void MyGLWidget::paintGL()
     // Definition de la position de la camera
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+    // Placement de la caméra
+    gluLookAt(18.0,5.0,1.0,18.0,5.0,0.0,0.0,1.0,0.0);
 
 }

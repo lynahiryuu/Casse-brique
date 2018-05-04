@@ -6,11 +6,15 @@ Brick::Brick(int x, int y):Reflector()
     y_=y;
     heigth_=2;
     width_=5;
+    brick_quadric_=gluNewQuadric();
 }
 
 //Destructeur
 Brick::~Brick(){
+    gluDeleteQuadric(brick_quadric_);
 }
+
+
 
 void Brick::Bounce(double ball_x,double ball_y,double speed_ball_X,double speed_ball_Y)
 {
@@ -39,6 +43,31 @@ void Brick::Bounce(double ball_x,double ball_y,double speed_ball_X,double speed_
 
  // La brique est détruite
  delete this;
+}
+
+
+void Brick::Display() const{
+    int R_,V_,B_;
+    R_=250;
+    V_=20;
+    B_=89;
+    glPushMatrix();
+    // Couleur de l'objet
+    GLfloat colorAmbiante[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
+    GLfloat colorDiffuse[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
+    //GLfloat colorSpeculaire_planet[] = {0.5f, 0.5f, 0.5f, 1.0f};
+
+    glMaterialfv(GL_FRONT, GL_AMBIENT, colorAmbiante);
+    glMaterialfv(GL_FRONT, GL_DIFFUSE, colorDiffuse);
+    //glMaterialfv(GL_FRONT, GL_SPECULAR, colorSpeculaire_planet);
+
+
+    // Affichage de la quadrique
+    // ATTENTION CE SONT DES SPHERES ET PAS DES RECTANGLES
+    gluSphere(brick_quadric_, 5, 50.0, 50.0);
+
+
+    glPopMatrix();
 }
 
 

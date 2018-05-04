@@ -5,10 +5,13 @@
 #include "brick.h"
 #include "paddle.h"
 #include <typeinfo>
+#include <GL/glu.h>
+
 class Ball
 {
 public:
     Ball();
+    ~Ball();
     void Move();
     void BounceOn(Reflector* r);
 
@@ -21,12 +24,15 @@ public:
     void sety_(double y);
     void setspeedx_(double speedx);
     void setspeedy_(double speedy);
+    void Display() const;
 private:
     double radius_;
     double x_;
     double y_;
     double speedx_;
     double speedy_;
+    GLUquadric *ball_quadric_;
+
 
    // double speedValue_;
    // double speedAngle_[];
