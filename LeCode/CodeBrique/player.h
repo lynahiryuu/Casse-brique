@@ -5,7 +5,9 @@ using namespace std;
 class Player
 {
 public:
-    Player();
+    Player(string name);
+    int getHP();
+    void setHP(int HP);
 private:
     int score_;
     string name_;

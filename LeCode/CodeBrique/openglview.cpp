@@ -1,6 +1,6 @@
 #include "openglview.h"
 
-OpenGLView::OpenGLView()
+/*OpenGLView::OpenGLView()
 {
 
 }
@@ -8,4 +8,4 @@ OpenGLView::OpenGLView()
 
 void OpenGLView::Refresh(){
 
-}
+}*/
