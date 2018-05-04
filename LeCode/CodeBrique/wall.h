@@ -4,14 +4,14 @@
 
 class Wall : public Reflector{
 public:
-    Wall(bool destructor);
-    void Bounce(double x,double y,double speedX,double speedY) override;
+    Wall(int x, int y, int x2, int y2);
+    void Bounce(double ball_x, double ball_y, double speed_ball_X, double speed_ball_Y) override;
 private:
     double x1_;
     double y1_;
     double x2_;
     double y2_;
-    bool destructor_;
+    //bool destructor_;
 };
 
 #endif // WALL_H

@@ -5,34 +5,35 @@ using namespace std;
 
 Ball::Ball()
 {
-
-
-    radius_=3.14;
+    radius_=3.14159;
     setx_(8);
     sety_(8);
     setspeedx_(3);
     setspeedy_(3);
 }
 
+// Cette méthode permet de faire rebondir la balle en cas de collision et d'appeler la méthode qui fait changer de cap la balle
 void Ball::BounceOn(Reflector *r) {
     string s=typeid(*r).name();
-    if(s=="Wall"){
+    if(s=="Wall")
+    {
+        r->Bounce(x_, y_, speedx_, speedx_);
     }
-    else if(s=="Paddle"){
-
+    else if(s=="Paddle")
+    {
+        r->Bounce(x_, y_, speedx_, speedx_);
     }
-    else if(s=="Brick"){
-
-    }
-    else{
-        //Error
+    else if(s=="Brick")
+    {
+        r->Bounce(x_, y_, speedx_, speedx_);
     }
 }
 
 
 
 
-void Ball::Move(){
+void Ball::Move()
+{
     setx_(getspeedx_()+getx_());
     sety_(getspeedy_()+gety_());
 }

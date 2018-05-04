@@ -8,9 +8,37 @@ Brick::Brick(int x, int y):Reflector()
     width_=5;
 }
 
+//Destructeur
+Brick::~Brick(){
+}
 
-void Brick::Bounce(double x,double y,double speedX,double speedY){
+void Brick::Bounce(double ball_x,double ball_y,double speed_ball_X,double speed_ball_Y)
+{
+    // La balle change cap :
 
+    //Si la balle arrive du bas :
+    if (ball_y <= y_)
+    {
+        speed_ball_Y = -speed_ball_Y;
+    }
+    //Si la balle arrive du haut :
+    else if(ball_y >= y_)
+    {
+        speed_ball_Y = -speed_ball_Y;
+    }
+    //Si la balle arrive de gauche
+    else if(ball_x <= x_)
+    {
+        speed_ball_X = -speed_ball_X;
+    }
+    //Si la balle arrive de droite
+    else if(ball_x >= x_)
+    {
+        speed_ball_X = -speed_ball_X;
+    }
+
+ // La brique est détruite
+ delete this;
 }
 
 
