@@ -6,8 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    height_ = ui->openGLWidget->maximumHeight();
-    width_ = ui->openGLWidget->maximumWidth();
+    height_ = ui->GameWindow->maximumHeight();
+    width_ = ui->GameWindow->maximumWidth();
 }
 
 
