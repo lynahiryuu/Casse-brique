@@ -8,5 +8,7 @@ INPUT(
 ./debug\ball.o
 ./debug\player.o
 ./debug\model.o
+./debug\myglwidget.o
 ./debug\moc_mainwindow.o
+./debug\moc_myglwidget.o
 );

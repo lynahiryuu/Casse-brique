@@ -1,11 +1,14 @@
 #include "mainwindow.h"
+#include "myglwidget.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
+    // Creation de l'application QT
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+
+    MyGLWidget glWidget;
+    glWidget.show();
 
     return a.exec();
 }

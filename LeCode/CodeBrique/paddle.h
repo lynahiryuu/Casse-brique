@@ -9,6 +9,8 @@ public:
     Paddle();
 
     virtual void Bounce(double x,double y,double speedX,double speedY)=0;
+    void GoLeft();
+    void GoRight();
 private:
     double x_;
     double heigth_;

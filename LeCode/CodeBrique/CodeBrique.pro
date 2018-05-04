@@ -8,6 +8,16 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+QT       += core gui opengl widgets
+
+win32 {
+    win32-msvc* {
+        LIBS     += opengl32.lib glu32.lib
+    } else {
+        LIBS     += -lopengl32 -lglu32
+    }
+}
+
 TARGET = CodeBrique
 TEMPLATE = app
 
@@ -33,8 +43,7 @@ SOURCES += \
     ball.cpp \
     player.cpp \
     model.cpp \
-    openglview.cpp \
-    openglview.cpp
+    myglwidget.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -45,7 +54,7 @@ HEADERS += \
     ball.h \
     player.h \
     model.h \
-    openglview.h
+    myglwidget.h
 
 FORMS += \
         mainwindow.ui
