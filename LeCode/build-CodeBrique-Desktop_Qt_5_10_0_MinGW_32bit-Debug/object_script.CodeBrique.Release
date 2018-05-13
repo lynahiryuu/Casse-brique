@@ -8,7 +8,7 @@ INPUT(
 ./release\ball.o
 ./release\player.o
 ./release\model.o
-./release\openglview.o
-./release\openglview.o
+./release\myglwidget.o
 ./release\moc_mainwindow.o
+./release\moc_myglwidget.o
 );
