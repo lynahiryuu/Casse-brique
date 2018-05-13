@@ -2,7 +2,9 @@
 #define BRICK_H
 #include "reflector.h"
 #include <GL/glu.h>
-
+#include <QString>
+#include <QImage>
+#include <QGLWidget>
 
 class Brick : public Reflector
 {
@@ -21,6 +23,7 @@ private:
     GLfloat y_;
     double heigth_;
     double width_;
+    QString imPath_;
     //GLUquadric *brick_quadric_;
 };
 

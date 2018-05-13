@@ -1,12 +1,13 @@
 #include "brick.h"
 
-Brick::Brick(float x, float y):Reflector()
+
+Brick::Brick(float x, float y ):Reflector()
 {
     x_=x;
     y_=y;
     heigth_=1;
     width_=3;
-    //brick_quadric_= gluNewQuadric();
+    imPath_= ":/Textures/brick.png";
 }
 
 //Destructeur
@@ -52,6 +53,8 @@ void Brick::Display() const{
     V_=20;
     B_=89;
     glPushMatrix();
+
+
     // Couleur de l'objet
     //GLfloat colorAmbiante[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
     //GLfloat colorDiffuse[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
