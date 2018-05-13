@@ -102,6 +102,8 @@ void Brick::Display() const{
     glVertex3f(x_+3.0f, y_-1.0f, -1.0f);
     glVertex3f(x_, y_-1.0f, -1.0f);
 
+    glEnd();
+    // Matrice de translation
 
     glPopMatrix();
 }

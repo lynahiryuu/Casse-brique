@@ -7,6 +7,8 @@
 #include "player.h"
 #include "paddle.h"
 #include "mainwindow.h"
+#include <iostream>
+using namespace std;
 
 
 
@@ -21,11 +23,13 @@ Model::Model()
 
 void Model::StartNewGame(){
 
+//    bricks_.push_back((new Brick(0,0)));
     for(int i=0;i<10;i++){
         for (int j=0;j<3;j++){
             GLfloat a = GLfloat(i);
             GLfloat b = GLfloat(j);
-            bricks_.push_back(new Brick(a,(12.0f-b)));
+                    bricks_.push_back(new Brick(10-a,(-9.0f+b)));
+
         }
     }
 
@@ -69,8 +73,7 @@ void Model::StartNewGame(){
     ball_ = new Ball();
 
     //Création du paddle
-    paddle_ = new Paddle(width_W_/2, height_W_/12);
-
+    paddle_ = new Paddle(0,10);
     //Création du joueur
     player_ = new Player("Player1");
 
@@ -105,14 +108,14 @@ bool Model::WinGame()
 
 
 void Model::Display() const{
-//    for(Brick* b: bricks_){
-//        b->Display();
-//    }
+    for(Brick* b: bricks_){
+        b->Display();
+    }
 //    for(Wall* w: walls_){
 //        w->Display();
 //    }
     ball_->Display();
-//    paddle_->Display();
+    paddle_->Display();
 }
 
 

@@ -3,8 +3,8 @@
 
 Paddle::Paddle(double x, double y):Reflector()
 {
- y_ = y;
  x_ = x;
+ y_ = y;
  heigth_ = 2;
  width_ = 8;
  //paddle_quadric_=gluNewQuadric();
@@ -55,6 +55,7 @@ void Paddle::Display() const{
     // Affichage de la quadrique
     // ATTENTION CE SONT DES SPHERES ET PAS DES RECTANGLES
     //gluSphere(brick_quadric_, 5, 50.0, 50.0);
+
     glBegin(GL_QUADS);
     glColor3ub(255,0,0);
     glVertex3f(x_,y_, -1.0f);
@@ -91,6 +92,8 @@ void Paddle::Display() const{
     glVertex3f(x_+5.0f, y_-1.0f, 1.0f);
     glVertex3f(x_+5.0f, y_-1.0f, -1.0f);
     glVertex3f(x_, y_-1.0f, -1.0f);
+
+    glEnd();
 
 
     glPopMatrix();

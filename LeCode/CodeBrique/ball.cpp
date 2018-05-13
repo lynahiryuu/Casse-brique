@@ -52,7 +52,7 @@ void Ball::Display() const{
 
 
     // Affichage de la quadrique
-    gluSphere(ball_quadric_, 5, 50.0, 50.0);
+    gluSphere(ball_quadric_, 0.5, 50.0, 50.0);
 
 
     glPopMatrix();}
