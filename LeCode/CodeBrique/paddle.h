@@ -20,7 +20,7 @@ private:
     double y_;
     double heigth_;
     double width_;
-    GLUquadric *paddle_quadric_;
+    //GLUquadric *paddle_quadric_;
 
 };
 
