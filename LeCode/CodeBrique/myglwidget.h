@@ -2,7 +2,7 @@
 #define MYGLWIDGET_H
 #include <QGLWidget>
 #include <GL/glu.h>
-
+#include "model.h"
 
 
 using namespace std;
@@ -28,6 +28,7 @@ protected:
     //void keyPressEvent(QKeyEvent * event);
 
 private:
+    Model* model_;
 };
 
 #endif // MYGLWIDGET_H
