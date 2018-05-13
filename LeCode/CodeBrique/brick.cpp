@@ -1,17 +1,17 @@
 #include "brick.h"
 
-Brick::Brick(int x, int y):Reflector()
+Brick::Brick(GLfloat x, GLfloat y):Reflector()
 {
     x_=x;
     y_=y;
-    heigth_=2;
-    width_=5;
-    brick_quadric_=gluNewQuadric();
+    heigth_=1;
+    width_=3;
+    //brick_quadric_= gluNewQuadric();
 }
 
 //Destructeur
 Brick::~Brick(){
-    gluDeleteQuadric(brick_quadric_);
+    //gluDeleteQuadric(brick_quadric_);
 }
 
 
@@ -53,18 +53,54 @@ void Brick::Display() const{
     B_=89;
     glPushMatrix();
     // Couleur de l'objet
-    GLfloat colorAmbiante[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
-    GLfloat colorDiffuse[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
+    //GLfloat colorAmbiante[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
+    //GLfloat colorDiffuse[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
     //GLfloat colorSpeculaire_planet[] = {0.5f, 0.5f, 0.5f, 1.0f};
 
-    glMaterialfv(GL_FRONT, GL_AMBIENT, colorAmbiante);
-    glMaterialfv(GL_FRONT, GL_DIFFUSE, colorDiffuse);
+    //glMaterialfv(GL_FRONT, GL_AMBIENT, colorAmbiante);
+    //glMaterialfv(GL_FRONT, GL_DIFFUSE, colorDiffuse);
     //glMaterialfv(GL_FRONT, GL_SPECULAR, colorSpeculaire_planet);
 
 
     // Affichage de la quadrique
     // ATTENTION CE SONT DES SPHERES ET PAS DES RECTANGLES
-    gluSphere(brick_quadric_, 5, 50.0, 50.0);
+    //gluSphere(brick_quadric_, 5, 50.0, 50.0);
+    glBegin(GL_QUADS);
+    glColor3ub(255,0,0);
+    glVertex3f(x_,y_, -1.0f);
+    glVertex3f(x_+3.0f, y_, -1.0f);
+    glVertex3f(x_+3.0f, y_-1.0f, -1.0f);
+    glVertex3f(x_, y_-1.0f, -1.0f);
+
+    glColor3ub(255,0,0);
+    glVertex3f(x_,y_, 1.0f);
+    glVertex3f(x_+3.0f, y_, 1.0f);
+    glVertex3f(x_+3.0f, y_-1.0f, 1.0f);
+    glVertex3f(x_, y_-1.0f, 1.0f);
+
+    glColor3ub(255,0,0);
+    glVertex3f(x_,y_, 1.0f);
+    glVertex3f(x_, y_, -1.0f);
+    glVertex3f(x_, y_-1.0f, -1.0f);
+    glVertex3f(x_, y_-1.0f, 1.0f);
+
+    glColor3ub(255,0,0);
+    glVertex3f(x_+3.0f,y_, 1.0f);
+    glVertex3f(x_+3.0f, y_, -1.0f);
+    glVertex3f(x_+3.0f, y_-1.0f, -1.0f);
+    glVertex3f(x_+3.0f, y_-1.0f, 1.0f);
+
+    glColor3ub(255,0,0);
+    glVertex3f(x_, y_, 1.0f);
+    glVertex3f(x_+3.0f, y_, 1.0f);
+    glVertex3f(x_+3.0f, y_, -1.0f);
+    glVertex3f(x_, y_, -1.0f);
+
+    glColor3ub(255,0,0);
+    glVertex3f(x_, y_-1.0f, 1.0f);
+    glVertex3f(x_+3.0f, y_-1.0f, 1.0f);
+    glVertex3f(x_+3.0f, y_-1.0f, -1.0f);
+    glVertex3f(x_, y_-1.0f, -1.0f);
 
 
     glPopMatrix();

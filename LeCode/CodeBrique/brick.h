@@ -7,7 +7,7 @@
 class Brick : public Reflector
 {
 public:
-    Brick(int x, int y);
+    Brick(GLfloat x, GLfloat y);
     ~Brick();
     void Bounce(double ball_x, double ball_y, double speed_ball_X, double speed_ball_Y);
     int getX();
@@ -16,11 +16,11 @@ public:
     void setY(int y);
     void Display() const;
 private:
-    int x_;
-    int y_;
+    GLfloat x_;
+    GLfloat y_;
     double heigth_;
     double width_;
-    GLUquadric *brick_quadric_;
+    //GLUquadric *brick_quadric_;
 };
 
 #endif // BRICK_H

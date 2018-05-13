@@ -40,17 +40,17 @@ void Model::StartNewGame(){
     //Création des murs
 
     //Haut
-    Wall * wall_h = new Wall(1,1,width_W_,1);
+    Wall * wall_h = new Wall(1);
     walls_.push_back(wall_h);
 
     //Bas
-    Wall * wall_d = new Wall(1,height_W_,width_W_,height_W_);
+    Wall * wall_d = new Wall(2);
     walls_.push_back(wall_d);
     //Droite
-    Wall * wall_r = new Wall(height_W_,width_W_,height_W_,width_W_);
+    Wall * wall_r = new Wall(3);
     walls_.push_back(wall_r);
     //Gauche
-    Wall * wall_l = new Wall(1,1,1,height_W_);
+    Wall * wall_l = new Wall(4);
     walls_.push_back(wall_l);
 
     //Création de la balle
