@@ -8,16 +8,18 @@
 #include "player.h"
 #include "mainwindow.h"
 
+
 class Model
 {
 public:
-    Model(MainWindow *m);
+    Model();
     void StartNewGame();
     void LoseLife();
     bool LoseGame();
     bool WinGame();
     int get_H_Wid();
     int get_W_Wid();
+    void Display() const;
 
 private:
     vector<Brick *> bricks_;

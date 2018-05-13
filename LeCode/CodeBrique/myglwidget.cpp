@@ -10,6 +10,7 @@ const float MAX_DIMENSION     = 50.0f;
 
 MyGLWidget::MyGLWidget(QWidget * parent) : QGLWidget(parent)
 {
+    //model_=new Model();
 
 }
 
@@ -45,6 +46,7 @@ void MyGLWidget::resizeGL(int width, int height)
 void MyGLWidget::paintGL()
 {
     glClearColor(0.1f, 0.6f, 0.4f, 0.0f);
+
 
     // Definition de la position de la camera
     glMatrixMode(GL_MODELVIEW);

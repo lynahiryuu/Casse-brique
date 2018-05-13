@@ -8,11 +8,14 @@
 #include "paddle.h"
 #include "mainwindow.h"
 
-Model::Model(MainWindow *m)
+
+
+Model::Model()
 {
-   main_ = m;
-   width_W_ = main_->getWidth();
-   height_W_ = main_->getHeight();
+    ball_=new Ball();
+    paddle_=new Paddle(0,15);
+
+    this->StartNewGame();
 }
 
 
@@ -30,28 +33,27 @@ void Model::StartNewGame(){
         ListPos->push_back(tempo);
     }
 
+
     for(int i=0;i<NbBricks;i++){
         int pos = ListPos->at(i);
         Brick* brique = new Brick(pos,pos);
         bricks_.push_back(brique);
-
     }
 
     //Création des murs
-
-    //Haut
-    Wall * wall_h = new Wall(1,1,width_W_,1);
+    //Gauhe
+    Wall * wall_h = new Wall(1);
     walls_.push_back(wall_h);
-
-    //Bas
-    Wall * wall_d = new Wall(1,height_W_,width_W_,height_W_);
+    //Haut
+    Wall * wall_d = new Wall(2);
     walls_.push_back(wall_d);
     //Droite
-    Wall * wall_r = new Wall(height_W_,width_W_,height_W_,width_W_);
+    Wall * wall_r = new Wall(3);
     walls_.push_back(wall_r);
-    //Gauche
-    Wall * wall_l = new Wall(1,1,1,height_W_);
+    //Bas
+    Wall * wall_l = new Wall(4);
     walls_.push_back(wall_l);
+
 
     //Création de la balle
     ball_ = new Ball();
@@ -63,6 +65,11 @@ void Model::StartNewGame(){
     player_ = new Player("Player1");
 
 }
+
+
+
+
+
 
 void Model::LoseLife()
 {
@@ -85,6 +92,21 @@ bool Model::WinGame()
     }
     return false;
 }
+
+
+void Model::Display() const{
+    for(Brick* b: bricks_){
+        b->Display();
+    }
+    for(Wall* w: walls_){
+        w->Display();
+    }
+    ball_->Display();
+    paddle_->Display();
+}
+
+
+
 
 int Model::get_H_Wid(){
     return height_W_;
