@@ -9,6 +9,7 @@ INPUT(
 ./debug\player.o
 ./debug\model.o
 ./debug\myglwidget.o
+./debug\qrc_images.o
 ./debug\moc_mainwindow.o
 ./debug\moc_myglwidget.o
 );

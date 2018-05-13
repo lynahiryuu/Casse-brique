@@ -9,6 +9,7 @@ INPUT(
 ./release\player.o
 ./release\model.o
 ./release\myglwidget.o
+./release\qrc_images.o
 ./release\moc_mainwindow.o
 ./release\moc_myglwidget.o
 );

@@ -1,4 +1,6 @@
 #include "myglwidget.h"
+#include <QApplication>
+#include <QDesktopWidget>
 
 using namespace std;
 
@@ -19,6 +21,8 @@ MyGLWidget::MyGLWidget(QWidget * parent) : QGLWidget(parent)
     m_AnimationTimer_.setInterval(10);
     m_AnimationTimer_.start();
 
+//    setFixedSize(WIN_WIDTH,WIN_HEIGHT);
+    move(QApplication::desktop()->screen()->rect().center()-rect().center());
     model_=new Model();
 
 }
@@ -33,6 +37,7 @@ void MyGLWidget::initializeGL()
     // Reglage de la couleur de fond
     glClearColor(0.1f, 0.6f, 0.4f, 0.0f);
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_TEXTURE_2D);
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
     GLfloat blanc[]={1,1,1};
