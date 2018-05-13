@@ -7,7 +7,8 @@
 class Brick : public Reflector
 {
 public:
-    Brick(GLfloat x, GLfloat y);
+    // Attention : le constructeur utilise des GLfloat en vrai
+    Brick(float x, float y);
     ~Brick();
     void Bounce(double ball_x, double ball_y, double speed_ball_X, double speed_ball_Y);
     int getX();

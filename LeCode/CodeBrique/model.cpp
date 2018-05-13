@@ -12,33 +12,42 @@
 
 Model::Model()
 {
-    ball_=new Ball();
-    paddle_=new Paddle(0,15);
+    //ball_=new Ball();
+    //paddle_=new Paddle(0,15);
 
     this->StartNewGame();
 }
 
 
 void Model::StartNewGame(){
-    int NbBricks=rand()%50+50;
-    //bricks->push_back(Brick(1,2));
-    vector<int> *ListPos;
 
-    //Génération aléatoire de briques
-    int tempo=-1;
-    for(int j=0;j<NbBricks;j++){
-        while(std::find(ListPos->begin(), ListPos->end(), tempo) != ListPos->end()){
-            tempo=rand()%100;
+    for(int i=0;i<10;i++){
+        for (int j=0;j<3;j++){
+            GLfloat a = GLfloat(i);
+            GLfloat b = GLfloat(j);
+            bricks_.push_back(new Brick(a,(12.0f-b)));
         }
-        ListPos->push_back(tempo);
     }
 
+//    int NbBricks=rand()%50+50;
+//    //bricks->push_back(Brick(1,2));
+//    vector<int> *ListPos;
 
-    for(int i=0;i<NbBricks;i++){
-        int pos = ListPos->at(i);
-        Brick* brique = new Brick(pos,pos);
-        bricks_.push_back(brique);
-    }
+//    //Génération aléatoire de briques
+//    int tempo=-1;
+//    for(int j=0;j<NbBricks;j++){
+//        while(std::find(ListPos->begin(), ListPos->end(), tempo) != ListPos->end()){
+//            tempo=rand()%100;
+//        }
+//        ListPos->push_back(tempo);
+//    }
+
+
+//    for(int i=0;i<NbBricks;i++){
+//        int pos = ListPos->at(i);
+//        Brick* brique = new Brick(pos,pos);
+//        bricks_.push_back(brique);
+//    }
 
     //Création des murs
 
@@ -96,14 +105,14 @@ bool Model::WinGame()
 
 
 void Model::Display() const{
-    for(Brick* b: bricks_){
-        b->Display();
-    }
-    for(Wall* w: walls_){
-        w->Display();
-    }
+//    for(Brick* b: bricks_){
+//        b->Display();
+//    }
+//    for(Wall* w: walls_){
+//        w->Display();
+//    }
     ball_->Display();
-    paddle_->Display();
+//    paddle_->Display();
 }
 
 

@@ -1,6 +1,6 @@
 #include "brick.h"
 
-Brick::Brick(GLfloat x, GLfloat y):Reflector()
+Brick::Brick(float x, float y):Reflector()
 {
     x_=x;
     y_=y;

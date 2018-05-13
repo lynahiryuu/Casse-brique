@@ -10,7 +10,7 @@ const float MAX_DIMENSION     = 50.0f;
 
 MyGLWidget::MyGLWidget(QWidget * parent) : QGLWidget(parent)
 {
-    //model_=new Model();
+    model_=new Model();
 
 }
 
@@ -53,5 +53,6 @@ void MyGLWidget::paintGL()
     glLoadIdentity();
     // Placement de la caméra
     gluLookAt(18.0,5.0,1.0,18.0,5.0,0.0,0.0,1.0,0.0);
+    model_->Display();
 
 }
