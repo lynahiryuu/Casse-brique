@@ -10,8 +10,21 @@ const float MAX_DIMENSION     = 15.0f;
 
 MyGLWidget::MyGLWidget(QWidget * parent) : QGLWidget(parent)
 {
+    // Connexion du timer
+    connect(&m_AnimationTimer_,  &QTimer::timeout, [&] {
+        updateModel();
+        updateGL();
+    });
+
+    m_AnimationTimer_.setInterval(10);
+    m_AnimationTimer_.start();
+
     model_=new Model();
 
+}
+
+void MyGLWidget::updateModel(){
+    model_->update();
 }
 
 // Fonction d'initialisation
@@ -63,4 +76,54 @@ void MyGLWidget::paintGL()
     // Placement de la caméra
     gluLookAt(0.0,0.0,5.0,0.0,0.0,0.0,0.0,-1.0,0.0);
     model_->Display();
+}
+
+
+// Fonction de gestion d'interactions clavier
+void MyGLWidget::keyPressEvent(QKeyEvent * event)
+{
+    switch(event->key())
+    {
+
+        case Qt::Key_Left:
+        {
+            model_->setDirectionPaddle(-1);
+            break;
+        }
+
+        case Qt::Key_Right:
+        {
+            model_->setDirectionPaddle(1);
+            break;
+        }
+
+        // Activation/Arret de l'animation
+        case Qt::Key_Space:
+        {
+            if(m_AnimationTimer_.isActive())
+                m_AnimationTimer_.stop();
+            else
+                m_AnimationTimer_.start();
+
+            break;
+        }
+
+    case Qt::Key_Up:
+    {
+        model_->setDirectionPaddle(0);
+        break;
+    }
+
+        // Cas par defaut
+        default:
+        {
+            // Ignorer l'evenement
+            event->ignore();
+            return;
+        }
+    }
+
+    // Acceptation de l'evenement et mise a jour de la scene
+    event->accept();
+    updateGL();
 }

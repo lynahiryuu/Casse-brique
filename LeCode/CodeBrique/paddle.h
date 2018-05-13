@@ -13,6 +13,8 @@ public:
     void Bounce(double ball_x, double ball_y, double speed_ball_X, double speed_ball_Y);
     void setX(int x);
     void Display() const;
+    int getX();
+    void movePaddle(int direction);
 
 
 private:

@@ -1,6 +1,8 @@
 #ifndef MYGLWIDGET_H
 #define MYGLWIDGET_H
 #include <QGLWidget>
+#include <QKeyEvent>
+#include <QTimer>
 #include <GL/glu.h>
 #include "model.h"
 
@@ -25,9 +27,14 @@ protected:
     void paintGL();
 
     // Fonction de gestion d'interactions clavier
-    //void keyPressEvent(QKeyEvent * event);
+    void keyPressEvent(QKeyEvent * event);
+
+    void updateModel();
 
 private:
+    // Timer d'animation
+    QTimer m_AnimationTimer_;
+
     Model* model_;
 };
 

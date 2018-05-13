@@ -21,6 +21,8 @@ public:
     int get_H_Wid();
     int get_W_Wid();
     void Display() const;
+    void update();
+    void setDirectionPaddle(int direction);
 
 private:
     vector<Brick *> bricks_;
@@ -31,6 +33,7 @@ private:
     MainWindow *main_;
     int width_W_;
     int height_W_;
+    int direction_paddle_;
 };
 
 #endif // MODEL_H

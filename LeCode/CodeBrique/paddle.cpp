@@ -41,21 +41,9 @@ void Paddle::Bounce(double ball_x, double ball_y, double speed_ball_X, double sp
 }
 
 void Paddle::Display() const{
+
     glPushMatrix();
-    // Couleur de l'objet
-    //GLfloat colorAmbiante[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
-    //GLfloat colorDiffuse[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
-    //GLfloat colorSpeculaire_planet[] = {0.5f, 0.5f, 0.5f, 1.0f};
-
-    //glMaterialfv(GL_FRONT, GL_AMBIENT, colorAmbiante);
-    //glMaterialfv(GL_FRONT, GL_DIFFUSE, colorDiffuse);
-    //glMaterialfv(GL_FRONT, GL_SPECULAR, colorSpeculaire_planet);
-
-
-    // Affichage de la quadrique
-    // ATTENTION CE SONT DES SPHERES ET PAS DES RECTANGLES
-    //gluSphere(brick_quadric_, 5, 50.0, 50.0);
-
+// Affichage du paddle
     glBegin(GL_QUADS);
     glColor3ub(255,0,0);
     glVertex3f(x_,y_, -1.0f);
@@ -95,11 +83,26 @@ void Paddle::Display() const{
 
     glEnd();
 
-
     glPopMatrix();
 }
 
 void Paddle::setX(int x)
 {
      x_ = x;
+}
+
+int Paddle::getX(){
+    return x_;
+}
+
+
+void Paddle::movePaddle(int direction){
+    if (direction == -1){
+        setX(getX()-0.1);
+        glTranslated(-0.1,0.0,0.0);
+    }
+    else if(direction == 1){
+        setX(getX()+0.1);
+        glTranslated(0.1,0.0,0.0);
+    }
 }
