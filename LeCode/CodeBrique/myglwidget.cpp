@@ -19,7 +19,7 @@ MyGLWidget::MyGLWidget(QWidget * parent) : QGLWidget(parent)
     });
 
     m_AnimationTimer_.setInterval(10);
-    m_AnimationTimer_.start();
+    //m_AnimationTimer_.start();
 
 //    setFixedSize(WIN_WIDTH,WIN_HEIGHT);
     move(QApplication::desktop()->screen()->rect().center()-rect().center());
