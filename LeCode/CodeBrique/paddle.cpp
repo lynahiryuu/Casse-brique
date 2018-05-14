@@ -98,11 +98,11 @@ int Paddle::getX(){
 
 void Paddle::movePaddle(int direction){
     if (direction == -1){
-        setX(getX()-0.1);
-        glTranslated(-0.1,0.0,0.0);
+        this->setX(this->getX()-1);
+        glTranslated(-1,0.0,0.0);
     }
     else if(direction == 1){
-        setX(getX()+0.1);
-        glTranslated(0.1,0.0,0.0);
+        this->setX(this->getX()+1);
+        glTranslated(1,0.0,0.0);
     }
 }

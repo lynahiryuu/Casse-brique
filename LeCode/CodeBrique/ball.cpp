@@ -62,6 +62,7 @@ void Ball::Move()
 {
     setx_(getspeedx_()+getx_());
     sety_(getspeedy_()+gety_());
+    glTranslated(getspeedx_(),getspeedy_(),0);
 }
 
 

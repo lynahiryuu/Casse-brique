@@ -82,9 +82,6 @@ void Model::StartNewGame(){
 
 
 
-
-
-
 void Model::LoseLife()
 {
     player_->setHP( player_->getHP()-1 );
@@ -129,19 +126,21 @@ int Model::get_W_Wid(){
 }
 
 void Model::update(){
-    for(Brick* b: bricks_){
+   /* for(Brick* b: bricks_){
         b->Bounce(ball_->getx_(),ball_->gety_(),ball_->getspeedx_(),ball_->getspeedy_());
     }
     for(Wall* w: walls_){
         w->Bounce(ball_->getx_(),ball_->gety_(),ball_->getspeedx_(),ball_->getspeedy_());
     }
 
-    paddle_->Bounce(ball_->getx_(),ball_->gety_(),ball_->getspeedx_(),ball_->getspeedy_());
-    ball_->Move();
+    paddle_->Bounce(ball_->getx_(),ball_->gety_(),ball_->getspeedx_(),ball_->getspeedy_());*/
+    //ball_->Move();
+
     paddle_->movePaddle(direction_paddle_);
+    Display();
 
 }
 
 void Model::setDirectionPaddle(int direction){
-    direction_paddle_=direction;
+    direction_paddle_= direction;
 }
