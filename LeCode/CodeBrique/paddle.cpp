@@ -7,6 +7,7 @@ Paddle::Paddle(double x, double y):Reflector()
  y_ = y;
  heigth_ = 2;
  width_ = 8;
+ direction_ =0;
  //paddle_quadric_=gluNewQuadric();
 }
 
@@ -43,6 +44,12 @@ void Paddle::Bounce(double ball_x, double ball_y, double speed_ball_X, double sp
 void Paddle::Display() const{
 
     glPushMatrix();
+    if (direction_ == -1){
+        glTranslated(-1,0.0,0.0);
+    }
+    else if(direction_ == 1){
+        glTranslated(1,0.0,0.0);
+    }
 // Affichage du paddle
     glBegin(GL_QUADS);
     glColor3ub(255,0,0);
@@ -98,11 +105,13 @@ int Paddle::getX(){
 
 void Paddle::movePaddle(int direction){
     if (direction == -1){
+        direction_ = direction;
         this->setX(this->getX()-1);
-        glTranslated(-1,0.0,0.0);
+        //glTranslated(-1,0.0,0.0);
     }
     else if(direction == 1){
+        direction_ = direction;
         this->setX(this->getX()+1);
-        glTranslated(1,0.0,0.0);
+        //glTranslated(1,0.0,0.0);
     }
 }

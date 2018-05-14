@@ -59,10 +59,10 @@ cout<<"on est dans display"<<endl;
     /*int R_,V_,B_;
     R_=20;
     V_=20;
-    B_=259;
+    B_=259;*/
 
     glPushMatrix();
-    // Couleur de l'objet
+    /*// Couleur de l'objet
     GLfloat colorAmbiante[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
     GLfloat colorDiffuse[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
     //GLfloat colorSpeculaire_planet[] = {0.5f, 0.5f, 0.5f, 1.0f};
@@ -73,6 +73,59 @@ cout<<"on est dans display"<<endl;
     gluCylinder(wall_quadric_, 2, 2, 12.0, 50.0, 50.0);
     //gluSphere(wall_quadric_, 0.6, 50.0, 50.0);
     glPopMatrix();*/
+
+    switch(id_)
+    {
+    //Gauche
+    case 1:
+    {
+        cout<<"entré dans 1"<<endl;
+        glRotated(90,0,0,1);
+        glTranslated(-6.0,-14.8,0);
+        //glPushMatrix();
+        // Couleur de l'objet
+        /*GLfloat colorAmbiante[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
+            GLfloat colorDiffuse[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
+            //GLfloat colorSpeculaire_planet[] = {0.5f, 0.5f, 0.5f, 1.0f};
+
+            glMaterialfv(GL_FRONT, GL_AMBIENT, colorAmbiante);
+            glMaterialfv(GL_FRONT, GL_DIFFUSE, colorDiffuse);
+
+            gluCylinder(wall_quadric_, 0.2, 0.2, 12.0, 50.0, 50.0);*/
+
+
+        break;
+    }
+        //Haut
+    case 2:
+    {
+        cout<<"entré dans 2"<<endl;
+        glRotated(0,0,0,1);
+        glTranslated(-15.0,-11.0,0);
+        //glTranslated(0,10.0,0);
+        break;
+    }
+        //Droite
+    case 3:
+    {
+        cout<<"entré dans 3"<<endl;
+        glRotated(90,0,0,1);
+        glTranslated(-6.0,14.8,0);
+        break;
+    }
+        //Bas
+    case 4:
+    {
+        cout<<"entré dans 4"<<endl;
+        glTranslated(-15.0,11.0,0);
+        //glRotated(45,0,0,1);
+        //glTranslated(0,0,0);
+        break;
+    }
+    default:{
+        cout<<"Impossible d'afficher les murs"<<endl;
+    }
+    }
 
     glBegin(GL_QUADS);
 
@@ -122,58 +175,7 @@ cout<<"on est dans display"<<endl;
 
     glPopMatrix();
 
-    switch(id_)
-    {
-    //Gauche
-    case 1:
-    {
-        cout<<"entré dans 1"<<endl;
-        //glRotated(90,0,0,1);
-        glTranslated(-12.0,14.0,0);
-        //glPushMatrix();
-        // Couleur de l'objet
-        /*GLfloat colorAmbiante[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
-            GLfloat colorDiffuse[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
-            //GLfloat colorSpeculaire_planet[] = {0.5f, 0.5f, 0.5f, 1.0f};
 
-            glMaterialfv(GL_FRONT, GL_AMBIENT, colorAmbiante);
-            glMaterialfv(GL_FRONT, GL_DIFFUSE, colorDiffuse);
-
-            gluCylinder(wall_quadric_, 0.2, 0.2, 12.0, 50.0, 50.0);*/
-
-
-        break;
-    }
-        //Haut
-    case 2:
-    {
-        cout<<"entré dans 2"<<endl;
-        glTranslated(0.0,-2.0,0);
-        //glRotated(0,0,0,1);
-        //glTranslated(0,10.0,0);
-        break;
-    }
-        //Droite
-    case 3:
-    {
-        cout<<"entré dans 3"<<endl;
-        //glRotated(0,0,0,1);
-        glTranslated(0,-25,0);
-        break;
-    }
-        //Bas
-    case 4:
-    {
-        cout<<"entré dans 4"<<endl;
-        glTranslated(5.0,7.0,0);
-        //glRotated(45,0,0,1);
-        //glTranslated(0,0,0);
-        break;
-    }
-    default:{
-        cout<<"Impossible d'afficher les murs"<<endl;
-    }
-    }
 
 }
 
