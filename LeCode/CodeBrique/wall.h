@@ -10,9 +10,14 @@ public:
     ~Wall();
     void Bounce(double ball_x, double ball_y, double speed_ball_X, double speed_ball_Y) override;
     void Display() const;
+    int getId();
+    void setId(int id);
 private:
     int id_;
-    GLUquadric *wall_quadric_;
+    float weight_;
+    float x_;
+    float y_;
+    //GLUquadric *wall_quadric_;
 
     //bool destructor_;
 };

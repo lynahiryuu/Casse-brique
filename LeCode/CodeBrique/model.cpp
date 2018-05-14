@@ -60,12 +60,12 @@ void Model::StartNewGame(){
     Wall * wall_h = new Wall(1);
     walls_.push_back(wall_h);
     //Haut
-    Wall * wall_d = new Wall(2);
+   Wall * wall_d = new Wall(2);
     walls_.push_back(wall_d);
     //Droite
     Wall * wall_r = new Wall(3);
     walls_.push_back(wall_r);
-    //Bas
+    //Bas*//*
     Wall * wall_l = new Wall(4);
     walls_.push_back(wall_l);
 
@@ -106,12 +106,13 @@ bool Model::WinGame()
 
 
 void Model::Display() const{
+    //cout<<"On est dans le grand display"<<endl;
     for(Brick* b: bricks_){
         b->Display();
     }
-//    for(Wall* w: walls_){
-//        w->Display();
-//    }
+    for(Wall* w: walls_){
+        w->Display();
+    }
     ball_->Display();
     paddle_->Display();
 }

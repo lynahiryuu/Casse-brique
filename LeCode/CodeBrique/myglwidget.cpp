@@ -1,6 +1,7 @@
 #include "myglwidget.h"
 #include <QApplication>
 #include <QDesktopWidget>
+#include <iostream>
 
 using namespace std;
 
@@ -80,6 +81,7 @@ void MyGLWidget::paintGL()
     glLoadIdentity();
     // Placement de la caméra
     gluLookAt(0.0,0.0,5.0,0.0,0.0,0.0,0.0,-1.0,0.0);
+    //cout<<"on est dans paint"<<endl;
     updateModel();
     //model_->Display();
 }
