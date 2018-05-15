@@ -1,6 +1,7 @@
 #include "myglwidget.h"
 #include <QApplication>
 #include <QDesktopWidget>
+#include <iostream>
 
 using namespace std;
 
@@ -14,7 +15,7 @@ MyGLWidget::MyGLWidget(QWidget * parent) : QGLWidget(parent)
 {
     // Connexion du timer
     connect(&m_AnimationTimer_,  &QTimer::timeout, [&] {
-        updateModel();
+        //updateModel();
         updateGL();
     });
 
@@ -80,7 +81,9 @@ void MyGLWidget::paintGL()
     glLoadIdentity();
     // Placement de la caméra
     gluLookAt(0.0,0.0,5.0,0.0,0.0,0.0,0.0,-1.0,0.0);
-    model_->Display();
+    //cout<<"on est dans paint"<<endl;
+    updateModel();
+    //model_->Display();
 }
 
 
@@ -92,13 +95,13 @@ void MyGLWidget::keyPressEvent(QKeyEvent * event)
 
         case Qt::Key_Left:
         {
-            model_->setDirectionPaddle(-1);
+            model_->setDirectionPaddle(1);
             break;
         }
 
         case Qt::Key_Right:
         {
-            model_->setDirectionPaddle(1);
+            model_->setDirectionPaddle(-1);
             break;
         }
 

@@ -22,6 +22,7 @@ private:
     double y_;
     double heigth_;
     double width_;
+    int direction_;
     //GLUquadric *paddle_quadric_;
 
 };
