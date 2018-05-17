@@ -17,8 +17,8 @@ public:
 
     double getx_();
     double gety_();
-    double getspeedx_();
-    double getspeedy_();
+    double getspeedx_() const;
+    double getspeedy_() const;
 
     void setx_(double x);
     void sety_(double y);

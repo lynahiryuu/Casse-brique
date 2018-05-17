@@ -18,8 +18,10 @@ public:
     void LoseLife();
     bool LoseGame();
     bool WinGame();
+
     int get_H_Wid();
     int get_W_Wid();
+
     void Display() const;
     void update();
     void setDirectionPaddle(int direction);

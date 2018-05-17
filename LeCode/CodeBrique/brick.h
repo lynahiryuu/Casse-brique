@@ -19,6 +19,7 @@ public:
     void setY(int y);
     void Display() const;
 private:
+    // Coordonnées du point en haut à gauche de la brique
     GLfloat x_;
     GLfloat y_;
     double heigth_;
