@@ -41,8 +41,8 @@ void Ball::Display() const{
     V_=20;
     B_=89;
     glPushMatrix();
-    // Déplacement de la balle
-    glTranslated(this->getspeedx_(),this->getspeedy_(),0);
+    glTranslated(speedx_,speedy_,0);
+
     // Couleur de l'objet
     GLfloat colorAmbiante[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
     GLfloat colorDiffuse[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
@@ -60,11 +60,10 @@ void Ball::Display() const{
     glPopMatrix();}
 
 
-void Ball::Move()
+void Ball::Move(const float timeInDays)
 {
     setx_(getspeedx_()+getx_());
     sety_(getspeedy_()+gety_());
-//    glTranslated(getspeedx_(),getspeedy_(),0);
 }
 
 

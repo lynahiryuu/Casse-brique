@@ -126,18 +126,18 @@ int Model::get_W_Wid(){
     return width_W_;
 }
 
-void Model::update(){
-   /* Créer les rebonds sur toutes les surfaces possibles
-    * for(Brick* b: bricks_){
+void Model::update(const float timeInDays){
+   /* for(Brick* b: bricks_){
         b->Bounce(ball_->getx_(),ball_->gety_(),ball_->getspeedx_(),ball_->getspeedy_());
     }
     for(Wall* w: walls_){
         w->Bounce(ball_->getx_(),ball_->gety_(),ball_->getspeedx_(),ball_->getspeedy_());
     }
-    paddle_->Bounce(ball_->getx_(),ball_->gety_(),ball_->getspeedx_(),ball_->getspeedy_());
-    */
+    paddle_->Bounce(ball_->getx_(),ball_->gety_(),ball_->getspeedx_(),ball_->getspeedy_());*/
 
-    ball_->Move();
+
+    ball_->Move(timeInDays);
+
 
     paddle_->movePaddle(direction_paddle_);
     Display();

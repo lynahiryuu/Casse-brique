@@ -29,10 +29,11 @@ protected:
     // Fonction de gestion d'interactions clavier
     void keyPressEvent(QKeyEvent * event);
 
-    void updateModel();
+    void updateModel(const float timeInDays);
 
 private:
     // Timer d'animation
+    float m_TimeElapsed { 0.0f };
     QTimer m_AnimationTimer_;
 
     Model* model_;

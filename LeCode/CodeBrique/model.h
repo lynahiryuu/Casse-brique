@@ -23,7 +23,7 @@ public:
     int get_W_Wid();
 
     void Display() const;
-    void update();
+    void update(const float timeInDays);
     void setDirectionPaddle(int direction);
 
 private:
