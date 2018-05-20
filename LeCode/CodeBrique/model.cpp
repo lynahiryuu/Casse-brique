@@ -127,18 +127,17 @@ int Model::get_W_Wid(){
 }
 
 void Model::update(const float timeInDays){
-   /* for(Brick* b: bricks_){
-        b->Bounce(ball_->getx_(),ball_->gety_(),ball_->getspeedx_(),ball_->getspeedy_());
-    }
+//   for(Brick* b: bricks_){
+//        b->Bounce(ball_);
+//    }
+   /*
     for(Wall* w: walls_){
-        w->Bounce(ball_->getx_(),ball_->gety_(),ball_->getspeedx_(),ball_->getspeedy_());
+        w->Bounce(ball_);
     }
     paddle_->Bounce(ball_->getx_(),ball_->gety_(),ball_->getspeedx_(),ball_->getspeedy_());*/
 
 
     ball_->Move(timeInDays);
-
-
     paddle_->movePaddle(direction_paddle_);
     Display();
 

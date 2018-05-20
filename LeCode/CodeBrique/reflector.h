@@ -1,11 +1,13 @@
 #ifndef REFLECTOR_H
 #define REFLECTOR_H
+#include "ball.h"
+
 
 class Reflector
 {
 public:
     Reflector();
-    virtual void Bounce(double ball_x, double ball_y, double ball_speed_X, double ball_speed_Y)=0;
+    virtual void Bounce(Ball* b)=0;
     virtual void Display()const =0;
 };
 

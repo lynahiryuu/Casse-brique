@@ -5,12 +5,11 @@
 
 
 
-class Paddle : public Reflector
-{
+class Paddle : public Reflector{
 public:
     Paddle(double x, double y);
     ~Paddle();
-    void Bounce(double ball_x, double ball_y, double speed_ball_X, double speed_ball_Y);
+    void Bounce(Ball *b);
     void setX(int x);
     void Display() const;
     int getX();

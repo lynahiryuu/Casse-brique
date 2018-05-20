@@ -1,5 +1,6 @@
 #include "wall.h"
 #include <iostream>
+#include "ball.h"
 using namespace std;
 
 Wall::Wall(int id):Reflector()
@@ -12,48 +13,41 @@ Wall::Wall(int id):Reflector()
         weight_ = 30.0;
     else if(id_ == 1 || id_ == 3 )
         weight_ = 12.0;
+
     x_ = 0.0;
     y_ = 0.0;
-    /*wall_quadric_= gluNewQuadric();
-   glRotated(90,1,0,0);
-   glTranslated(20,0,0);*/
 
-    /* switch(id_){
-   //Gauche
-   case 1:
-   {
-       glRotated(90,1,0,0);
-       break;
-   }
-   //Haut
-   case 2:
-   {
-       glRotated(90,0,1,0);
-       glTranslated(0,12,0);
-       break;
-   }
-   //Droite
-   case 3:
-   {
-       glRotated(90,1,0,0);
-       glTranslated(30,0,0);
-       break;
-   }
-   //Bas
-   case 4:
-   {
-       glRotated(90,0,1,0);
-       break;
-   }
-   default:
-       cout<<"Mur impossible à créer"<<endl;
-   }*/
+
+//    switch(id_){
+//        //Gauche
+//    case 1:
+//        x_ = 0.0;
+//        y_ = 0.0;
+//        break;
+//        // Haut
+//    case 2:
+//        x_ = 0.0;
+//        y_ = 0.0;
+//        break;
+//        // Droite
+//    case 3:
+//        x_ = 0.0;
+//        y_ = 0.0;
+//        break;
+//        // Bas
+//    case 4:
+//        x_ = 0.0;
+//        y_ = 0.0;
+//        break;
+//    }
+
 
 }
 
 Wall::~Wall(){
     //gluDeleteQuadric(wall_quadric_);
 }
+
 void Wall::Display()const{
 cout<<"on est dans display"<<endl;
     /*int R_,V_,B_;
@@ -179,28 +173,29 @@ cout<<"on est dans display"<<endl;
 
 }
 
-void Wall::Bounce(double ball_x, double ball_y, double speed_ball_X, double speed_ball_Y){
+void Wall::Bounce(Ball* b){
     // La balle change cap :
 
     //Si la balle arrive du bas :
-    if (ball_y >= 12)
+    if (b->gety_()>= 12)
     {
-        speed_ball_Y = -speed_ball_Y;
+        b->setspeedy_(-b->getspeedy_());
     }
     //Si la balle arrive du haut :
-    else if(ball_y <= 0)
+    else if(b->gety_() <= 0)
     {
         //perdre une vie();
     }
     //Si la balle arrive de gauche
-    else if(ball_x >= 30)
+    else if(b->getx_() >= 30)
     {
-        speed_ball_X = -speed_ball_X;
+        b->setspeedx_(-b->getspeedx_());
     }
     //Si la balle arrive de droite
-    else if(ball_x <= 0)
+    else if(b->getx_() <= 0)
     {
-        speed_ball_X = -speed_ball_X;
+        b->setspeedx_(-b->getspeedx_());
+
     }
 }
 

@@ -1,5 +1,6 @@
 #include "paddle.h"
 #include "mainwindow.h"
+#include "ball.h"
 
 Paddle::Paddle(double x, double y):Reflector()
 {
@@ -15,28 +16,30 @@ Paddle::~Paddle(){
     //gluDeleteQuadric(paddle_quadric_);
 }
 
-void Paddle::Bounce(double ball_x, double ball_y, double speed_ball_X, double speed_ball_Y){
+void Paddle::Bounce(Ball* b){
     // La balle change cap :
 
+    float dist=0.1;// Taille de la zone de contact avec les briques
+    float ballDiameter=0.5;
     //Si la balle arrive du bas :
-    if (ball_y <= y_)
+    if (b->Into(x_+b->getRadius_(),y_-heigth_-b->getRadius_(),x_-width_-b->getRadius_(),y_-heigth_-b->getRadius_()-dist) )
     {
-        speed_ball_Y = -speed_ball_Y;
+        b->setspeedy_(-b->getspeedy_());
     }
     //Si la balle arrive du haut :
-    else if(ball_y >= y_)
+    else if(b->Into(x_+b->getRadius_(),y_+b->getRadius_(),x_-width_-b->getRadius_(),y_+b->getRadius_()+dist))
     {
-        speed_ball_Y = -speed_ball_Y;
+        b->setspeedy_(-b->getspeedy_());
     }
     //Si la balle arrive de gauche
-    else if(ball_x <= x_)
+    else if(b->Into(x_+b->getRadius_()+dist,y_+b->getRadius_(),x_+b->getRadius_(),y_-heigth_-b->getRadius_()))
     {
-        speed_ball_X = -speed_ball_X;
+        b->setspeedx_(-b->getspeedx_());
     }
     //Si la balle arrive de droite
-    else if(ball_x >= x_)
+    else if(b->Into(x_-width_-b->getRadius_(),y_+b->getRadius_(),x_-width_-b->getRadius_()-dist,y_-heigth_-b->getRadius_()))
     {
-        speed_ball_X = -speed_ball_X;
+        b->setspeedx_(-b->getspeedx_());
     }
 
 }

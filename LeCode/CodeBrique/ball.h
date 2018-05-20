@@ -1,11 +1,8 @@
 #ifndef BALL_H
 #define BALL_H
-#include "reflector.h"
-#include "wall.h"
-#include "brick.h"
-#include "paddle.h"
 #include <typeinfo>
 #include <GL/glu.h>
+
 
 class Ball
 {
@@ -13,12 +10,14 @@ public:
     Ball();
     ~Ball();
     void Move(const float timeInDays);
-    void BounceOn(Reflector* r);
+//    void BounceOn(Reflector* r);
+    boolean Into(double x1, double y1, double x2, double y2);
 
     double getx_();
     double gety_();
     double getspeedx_() const;
     double getspeedy_() const;
+    double getRadius_() const;
 
     void setx_(double x);
     void sety_(double y);

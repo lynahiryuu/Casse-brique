@@ -16,7 +16,7 @@ MyGLWidget::MyGLWidget(QWidget * parent) : QGLWidget(parent)
     // Connexion du timer
     connect(&m_AnimationTimer_,  &QTimer::timeout, [&] {
         m_TimeElapsed += 1.0f / 12.0f;
-        //updateModel();
+        //updateModel(m_TimeElapsed);
         updateGL();
     });
 

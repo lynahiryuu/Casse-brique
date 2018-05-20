@@ -1,5 +1,5 @@
 #include "brick.h"
-
+#include "ball.h"
 
 Brick::Brick(float x, float y ):Reflector()
 {
@@ -17,31 +17,31 @@ Brick::~Brick(){
 
 
 
-void Brick::Bounce(double ball_x,double ball_y,double speed_ball_X,double speed_ball_Y)
+void Brick::Bounce(Ball* b)
 {
     // La balle change cap :
 
-    float dist;
+    float dist=0.1;// Taille de la zone de contact avec les briques
     float ballDiameter=0.5;
     //Si la balle arrive du bas :
-    if (ball_y <= y_-(1-ballDiameter) && ball_y >= y_-(1-ballDiameter)-dist )
+    if (b->Into(x_,y_-heigth_-b->getRadius_(),x_-width_,y_-heigth_-b->getRadius_()-dist) )
     {
-        speed_ball_Y = -speed_ball_Y;
+        b->setspeedy_(-b->getspeedy_());
     }
     //Si la balle arrive du haut :
-    else if(ball_y >= y_+ballDiameter && ball_y<= y_+ballDiameter +dist )
+    else if(b->Into(x_,y_+b->getRadius_(),x_-width_,y_+b->getRadius_()+dist))
     {
-        speed_ball_Y = -speed_ball_Y;
+        b->setspeedy_(-b->getspeedy_());
     }
     //Si la balle arrive de gauche
-    else if(ball_x <= x_ - ballDiameter && ball_x <= x_ - ballDiameter - dist )
+    else if(b->Into(x_+b->getRadius_()+dist,y_,x_+b->getRadius_(),y_-heigth_))
     {
-        speed_ball_X = -speed_ball_X;
+        b->setspeedx_(-b->getspeedx_());
     }
     //Si la balle arrive de droite
-    else if(ball_x >= x_)
+    else if(b->Into(x_-width_-b->getRadius_(),y_,x_-width_-b->getRadius_()-dist,y_-heigth_))
     {
-        speed_ball_X = -speed_ball_X;
+        b->setspeedx_(-b->getspeedx_());
     }
 
  // La brique est détruite

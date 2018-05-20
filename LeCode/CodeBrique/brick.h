@@ -12,7 +12,7 @@ public:
     // Attention : le constructeur utilise des GLfloat en vrai
     Brick(float x, float y);
     ~Brick();
-    void Bounce(double ball_x, double ball_y, double speed_ball_X, double speed_ball_Y);
+    void Bounce(Ball *b);
     int getX();
     int getY();
     void setX(int x);
