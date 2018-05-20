@@ -6,8 +6,9 @@ using namespace std;
 Wall::Wall(int id):Reflector()
 {
     id_ = id;
-    cout<<id<<endl;
-    cout<<getId()<<endl;
+    //Attribut à false si la balle n'a pas touché le mur du bas
+    destructor_ = false;
+
     //Si ce sont les murs de haut ou de bas alors weight = 30 sinon c'est 12
     if (id_ == 2 || id_ == 4 )
         weight_ = 30.0;
@@ -16,36 +17,10 @@ Wall::Wall(int id):Reflector()
 
     x_ = 0.0;
     y_ = 0.0;
-
-
-//    switch(id_){
-//        //Gauche
-//    case 1:
-//        x_ = 0.0;
-//        y_ = 0.0;
-//        break;
-//        // Haut
-//    case 2:
-//        x_ = 0.0;
-//        y_ = 0.0;
-//        break;
-//        // Droite
-//    case 3:
-//        x_ = 0.0;
-//        y_ = 0.0;
-//        break;
-//        // Bas
-//    case 4:
-//        x_ = 0.0;
-//        y_ = 0.0;
-//        break;
-//    }
-
-
 }
 
 Wall::~Wall(){
-    //gluDeleteQuadric(wall_quadric_);
+
 }
 
 void Wall::Display()const{
@@ -83,8 +58,6 @@ void Wall::Display()const{
     {
         //cout<<"entré dans 4"<<endl;
         glTranslated(-15.0,11.0,0);
-        //glRotated(45,0,0,1);
-        //glTranslated(0,0,0);
         break;
     }
     default:{
@@ -150,29 +123,30 @@ void Wall::Bounce(Ball* b){
     // Mur Haut:
     if (b->gety_()>= 10)
     {
-        cout<<"haut"<<endl;
+        //cout<<"haut"<<endl;
 
         b->setspeedy_(b->getspeedy_()*(-1));
     }
     // Mur Bas :
     else if(b->gety_() <= -10)
     {
-        cout<<"bas"<<endl;
+        //cout<<"bas"<<endl;
         b->setspeedy_(b->getspeedy_()*(-1));
+        destructor_ = true;
 
         //perdre une vie();
     }
     // Mur Droite
     if(b->getx_() >= 15)
     {
-        cout<<"droite"<<endl;
+        //cout<<"droite"<<endl;
 
         b->setspeedx_(b->getspeedx_()*(-1));
     }
     // Mur Gauche :
     else if(b->getx_() <= -15)
     {
-        cout<<"gauche"<<endl;
+        //cout<<"gauche"<<endl;
 
         b->setspeedx_(b->getspeedx_()*(-1));
 
@@ -187,3 +161,10 @@ void Wall::setId(int id){
     id_ = id;
 }
 
+bool Wall::getDestructor(){
+    return destructor_;
+}
+
+void Wall::setDestructor(bool destructor){
+    destructor_ = destructor;
+}

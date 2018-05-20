@@ -9,7 +9,6 @@
 class Brick : public Reflector
 {
 public:
-    // Attention : le constructeur utilise des GLfloat en vrai
     Brick(float x, float y);
     ~Brick();
     void Bounce(Ball *b);
@@ -18,15 +17,16 @@ public:
     void setX(int x);
     void setY(int y);
     void Display() const;
+    int get_nb_broken_brick();
 private:
-    // Coordonnées du point en haut à gauche de la brique
+    int nb_broken_brick_;
     GLfloat x_;
     GLfloat y_;
     double heigth_;
     double width_;
     QString imPath_;
     bool destroy_;
-    //GLUquadric *brick_quadric_;
+
 };
 
 #endif // BRICK_H

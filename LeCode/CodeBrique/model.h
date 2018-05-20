@@ -17,7 +17,7 @@ public:
     void StartNewGame();
     void LoseLife();
     bool LoseGame();
-    bool WinGame();
+    void WinGame();
 
     int get_H_Wid();
     int get_W_Wid();
@@ -36,6 +36,7 @@ private:
     int width_W_;
     int height_W_;
     int direction_paddle_;
+    int size_brick_;
 };
 
 #endif // MODEL_H

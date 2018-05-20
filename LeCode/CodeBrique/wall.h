@@ -12,14 +12,14 @@ public:
     void Display() const;
     int getId();
     void setId(int id);
+    bool getDestructor();
+    void setDestructor(bool destructor);
 private:
     int id_;
     double weight_;
     double x_;
     double y_;
-    //GLUquadric *wall_quadric_;
-
-    //bool destructor_;
+    bool destructor_;
 };
 
 #endif // WALL_H

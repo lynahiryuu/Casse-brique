@@ -12,11 +12,9 @@ Paddle::Paddle(double x, double y):Reflector()
  heigth_ = 1;
  width_ = 5;
  direction_ =0;
- //paddle_quadric_=gluNewQuadric();
 }
 
 Paddle::~Paddle(){
-    //gluDeleteQuadric(paddle_quadric_);
 }
 
 void Paddle::Bounce(Ball* b){
@@ -28,7 +26,7 @@ void Paddle::Bounce(Ball* b){
     //Si la balle arrive du haut :
     if(b->Into(x_+width_,y_-heigth_,x_,y_-heigth_-dist-b->getRadius_()))
     {
-        cout<<"PADDLE"<<endl;
+        //cout<<"PADDLE"<<endl;
         b->setspeedy_(-1*b->getspeedy_());
     }
 

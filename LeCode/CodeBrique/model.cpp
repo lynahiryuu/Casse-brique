@@ -14,45 +14,22 @@ using namespace std;
 
 Model::Model()
 {
-    //ball_=new Ball();
-    //paddle_=new Paddle(0,15);
     direction_paddle_ = 0;
     this->StartNewGame();
 }
 
 
 void Model::StartNewGame(){
-
-//    bricks_.push_back((new Brick(0,0)));
+//Création des briques
     for(int i=0;i<10;i++){
         for (int j=0;j<10;j++){
             GLfloat a = GLfloat(i);
             GLfloat b = GLfloat(j);
-            // Il faut changer les valeurs de décalage : on avait mis ça pour voir les briques
                     bricks_.push_back(new Brick(12-3.1*a,(-9.0f+b*1.1)));
-
         }
     }
-
-//    int NbBricks=rand()%50+50;
-//    //bricks->push_back(Brick(1,2));
-//    vector<int> *ListPos;
-
-//    //Génération aléatoire de briques
-//    int tempo=-1;
-//    for(int j=0;j<NbBricks;j++){
-//        while(std::find(ListPos->begin(), ListPos->end(), tempo) != ListPos->end()){
-//            tempo=rand()%100;
-//        }
-//        ListPos->push_back(tempo);
-//    }
-
-
-//    for(int i=0;i<NbBricks;i++){
-//        int pos = ListPos->at(i);
-//        Brick* brique = new Brick(pos,pos);
-//        bricks_.push_back(brique);
-//    }
+    //Récupération de la taille des briques
+    size_brick_=bricks_.size();
 
     //Création des murs
 
@@ -84,30 +61,38 @@ void Model::StartNewGame(){
 
 void Model::LoseLife()
 {
-    player_->setHP( player_->getHP()-1 );
+    //Si on a touché le mur du bas, alors on perds un point de vie
+    if (walls_[0]->getDestructor())
+    {
+        player_->setHP(player_->getHP()-1);
+        cout<<"Tu perds un point de vie"<<endl;
+        //On réinitialise la condition
+        walls_[0]->setDestructor(false);
+    }
 }
 bool Model::LoseGame()
 {
+    //Si le joueur n'a plus de points de vie alors il perd la partie
     if (player_->getHP() == 0)
     {
+        cout<<"You lose !"<<endl;
         return true;
     }
     return false;
 }
 
-bool Model::WinGame()
+void Model::WinGame()
 {
-    bool win = LoseGame();
-    if (win == false && bricks_.empty()){
-        return true;
+    //Si le joueur a encore des points de vie et si le nombre de briques cassées équivaut à la taille des briques, alors le joueur gagne la partie
+    bool lost = LoseGame();
+    if (lost == false && size_brick_ == bricks_[0]->get_nb_broken_brick()){
+        cout<<"You win !"<<endl;
     }
-    return false;
 }
 
 
 void Model::Display() const{
-    cout<<"paddleX"<<paddle_->getX()<<endl;
-    cout<<"ballX"<<ball_->getx_()<<"###"<<endl;
+
     for(Brick* b: bricks_){
         b->Display();
     }
@@ -128,12 +113,14 @@ int Model::get_W_Wid(){
 }
 
 void Model::update(const float timeInDays){
+
+    this->LoseLife();
+    this->WinGame();
+
    for(Brick* b: bricks_){
         b->Bounce(ball_);
     }
-//    for(Wall* w: walls_){
-//        w->Bounce(ball_);
-//    }
+
    walls_[0]->Bounce(ball_);
     paddle_->Bounce(ball_);
 
