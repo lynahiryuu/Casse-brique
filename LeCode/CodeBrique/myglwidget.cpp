@@ -137,3 +137,7 @@ void MyGLWidget::keyPressEvent(QKeyEvent * event)
     event->accept();
     updateGL();
 }
+
+void MyGLWidget::setSpeedVector(Point p){
+    speedVector_=p;
+}
