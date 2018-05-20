@@ -45,7 +45,7 @@ void Brick::Bounce(Ball* b)
     }
 
  // La brique est détruite
- delete this;
+// delete this;
 }
 
 

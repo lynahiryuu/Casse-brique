@@ -49,7 +49,7 @@ Wall::~Wall(){
 }
 
 void Wall::Display()const{
-cout<<"on est dans display"<<endl;
+//cout<<"on est dans display"<<endl;
     /*int R_,V_,B_;
     R_=20;
     V_=20;
@@ -73,7 +73,7 @@ cout<<"on est dans display"<<endl;
     //Gauche
     case 1:
     {
-        cout<<"entré dans 1"<<endl;
+        //cout<<"entré dans 1"<<endl;
         glRotated(90,0,0,1);
         glTranslated(-6.0,-14.8,0);
         //glPushMatrix();
@@ -93,7 +93,7 @@ cout<<"on est dans display"<<endl;
         //Haut
     case 2:
     {
-        cout<<"entré dans 2"<<endl;
+        //cout<<"entré dans 2"<<endl;
         glRotated(0,0,0,1);
         glTranslated(-15.0,-11.0,0);
         //glTranslated(0,10.0,0);
@@ -102,7 +102,7 @@ cout<<"on est dans display"<<endl;
         //Droite
     case 3:
     {
-        cout<<"entré dans 3"<<endl;
+        //cout<<"entré dans 3"<<endl;
         glRotated(90,0,0,1);
         glTranslated(-6.0,14.8,0);
         break;
@@ -110,7 +110,7 @@ cout<<"on est dans display"<<endl;
         //Bas
     case 4:
     {
-        cout<<"entré dans 4"<<endl;
+        //cout<<"entré dans 4"<<endl;
         glTranslated(-15.0,11.0,0);
         //glRotated(45,0,0,1);
         //glTranslated(0,0,0);
@@ -176,25 +176,35 @@ cout<<"on est dans display"<<endl;
 void Wall::Bounce(Ball* b){
     // La balle change cap :
 
-    //Si la balle arrive du bas :
+    // Mur Haut:
     if (b->gety_()>= 12)
     {
-        b->setspeedy_(-b->getspeedy_());
+        cout<<"haut"<<endl;
+
+        b->setspeedy_(b->getspeedy_()*(-1));
     }
-    //Si la balle arrive du haut :
-    else if(b->gety_() <= 0)
+    // Mur Bas :
+    else if(b->gety_() <= -10)
     {
+
+        cout<<"bas"<<endl;
+        b->setspeedy_(b->getspeedy_()*(-1));
+
         //perdre une vie();
     }
-    //Si la balle arrive de gauche
+    // Mur Droite
     else if(b->getx_() >= 30)
     {
-        b->setspeedx_(-b->getspeedx_());
+        cout<<"droite"<<endl;
+
+        b->setspeedx_(b->getspeedx_()*(-1));
     }
-    //Si la balle arrive de droite
-    else if(b->getx_() <= 0)
+    // Mur Gauche :
+    else if(b->getx_() <= -10)
     {
-        b->setspeedx_(-b->getspeedx_());
+        cout<<"gauche"<<endl;
+
+        b->setspeedx_(b->getspeedx_()*(-1));
 
     }
 }
