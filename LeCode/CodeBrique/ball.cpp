@@ -36,11 +36,12 @@ Ball::~Ball(){
 //}
 
 void Ball::Display() const{
-    int R_,V_,B_;
-    R_=250;
-    V_=20;
-    B_=89;
     glPushMatrix();
+
+    int R_,V_,B_;
+    R_=15;
+    V_=150;
+    B_=89;
     glTranslated(x_+speedx_,y_+speedy_,0);
 
     // Couleur de l'objet

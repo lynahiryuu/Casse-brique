@@ -13,7 +13,7 @@ Wall::Wall(int id):Reflector()
     if (id_ == 2 || id_ == 4 )
         weight_ = 30.0;
     else if(id_ == 1 || id_ == 3 )
-        weight_ = 12.0;
+        weight_ = 24.0;
 
     x_ = 0.0;
     y_ = 0.0;
