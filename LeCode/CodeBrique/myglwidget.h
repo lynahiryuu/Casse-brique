@@ -5,8 +5,12 @@
 #include <QTimer>
 #include <GL/glu.h>
 #include "model.h"
+#include <cstdio>
 
-
+#include "opencv2/video/tracking.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
+#include "opencv2/highgui/highgui.hpp"
+using namespace cv;
 using namespace std;
 
 class MyGLWidget : public QGLWidget
@@ -15,6 +19,7 @@ class MyGLWidget : public QGLWidget
 
 public:
     MyGLWidget(QWidget * parent = nullptr);
+    void setSpeedVector(Point p);
 
 protected:
     // Fonction d'initialisation
@@ -35,7 +40,7 @@ private:
     // Timer d'animation
     float m_TimeElapsed { 0.0f };
     QTimer m_AnimationTimer_;
-
+    Point speedVector_;
     Model* model_;
 };
 
