@@ -74,7 +74,7 @@ void Model::StartNewGame(){
     ball_ = new Ball();
 
     //Création du paddle
-    paddle_ = new Paddle(0,10);
+    paddle_ = new Paddle(0,5);
     //Création du joueur
     player_ = new Player("Player1");
 
@@ -106,7 +106,8 @@ bool Model::WinGame()
 
 
 void Model::Display() const{
-    cout<<ball_->getx_()<< "###"<<ball_->gety_()<<endl;
+    cout<<paddle_->getX()<<endl;
+    cout<<ball_->getx_()<<"###"<<endl;
     for(Brick* b: bricks_){
         b->Display();
     }
