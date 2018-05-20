@@ -14,10 +14,10 @@ CXX           = g++
 DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -fno-keep-inline-dllexport -g -Wall -W -Wextra $(DEFINES)
 CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++11 -Wall -W -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I..\CodeBrique -I. -IC:\Qt\Qt5.10.1\5.10.1\mingw53_32\include -IC:\Qt\Qt5.10.1\5.10.1\mingw53_32\include\QtOpenGL -IC:\Qt\Qt5.10.1\5.10.1\mingw53_32\include\QtWidgets -IC:\Qt\Qt5.10.1\5.10.1\mingw53_32\include\QtGui -IC:\Qt\Qt5.10.1\5.10.1\mingw53_32\include\QtANGLE -IC:\Qt\Qt5.10.1\5.10.1\mingw53_32\include\QtCore -Idebug -I. -IC:\Qt\Qt5.10.1\5.10.1\mingw53_32\mkspecs\win32-g++ 
+INCPATH       = -I..\CodeBrique -I. -IC:\OpenCV\opencv-2.4.13.5\build\install\include -IC:\Qt\Qt5.10.1\5.10.1\mingw53_32\include -IC:\Qt\Qt5.10.1\5.10.1\mingw53_32\include\QtOpenGL -IC:\Qt\Qt5.10.1\5.10.1\mingw53_32\include\QtWidgets -IC:\Qt\Qt5.10.1\5.10.1\mingw53_32\include\QtGui -IC:\Qt\Qt5.10.1\5.10.1\mingw53_32\include\QtANGLE -IC:\Qt\Qt5.10.1\5.10.1\mingw53_32\include\QtCore -Idebug -I. -IC:\Qt\Qt5.10.1\5.10.1\mingw53_32\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
-LIBS        =        -lmingw32 -LC:\Qt\Qt5.10.1\5.10.1\mingw53_32\lib C:\Qt\Qt5.10.1\5.10.1\mingw53_32\lib\libqtmaind.a -LC:\utils\my_sql\my_sql\lib -LC:\utils\postgresql\pgsql\lib -lshell32 -lopengl32 -lglu32 C:\Qt\Qt5.10.1\5.10.1\mingw53_32\lib\libQt5OpenGLd.a C:\Qt\Qt5.10.1\5.10.1\mingw53_32\lib\libQt5Widgetsd.a C:\Qt\Qt5.10.1\5.10.1\mingw53_32\lib\libQt5Guid.a C:\Qt\Qt5.10.1\5.10.1\mingw53_32\lib\libQt5Cored.a 
+LIBS        =        -lmingw32 -LC:\Qt\Qt5.10.1\5.10.1\mingw53_32\lib C:\Qt\Qt5.10.1\5.10.1\mingw53_32\lib\libqtmaind.a -LC:\utils\my_sql\my_sql\lib -LC:\utils\postgresql\pgsql\lib -lshell32 -lopengl32 -lglu32 -LC:\OpenCV\opencv-2.4.13.5\build\install\x86\mingw\lib -lopencv_core2413 -lopencv_highgui2413 -lopencv_imgproc2413 -lopencv_features2d2413 -lopencv_calib3d2413 C:\Qt\Qt5.10.1\5.10.1\mingw53_32\lib\libQt5OpenGLd.a C:\Qt\Qt5.10.1\5.10.1\mingw53_32\lib\libQt5Widgetsd.a C:\Qt\Qt5.10.1\5.10.1\mingw53_32\lib\libQt5Guid.a C:\Qt\Qt5.10.1\5.10.1\mingw53_32\lib\libQt5Cored.a 
 QMAKE         = C:\Qt\Qt5.10.1\5.10.1\mingw53_32\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -254,7 +254,7 @@ debug/moc_mainwindow.cpp: C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets/QMa
 		../CodeBrique/mainwindow.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/bin/moc.exe
-	C:\Qt\Qt5.10.1\5.10.1\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Clément/Documents/FISE2/Projet Casse_Brique/Casse-brique/LeCode/CodeBrique" -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtANGLE -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore -I. -IC:/Qt/Qt5.10.1/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.10.1/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\CodeBrique\mainwindow.h -o debug\moc_mainwindow.cpp
+	C:\Qt\Qt5.10.1\5.10.1\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Clément/Documents/FISE2/Projet Casse_Brique/Casse-brique/LeCode/CodeBrique" -IC:/OpenCV/opencv-2.4.13.5/build/install/include -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtANGLE -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore -I. -IC:/Qt/Qt5.10.1/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.10.1/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\CodeBrique\mainwindow.h -o debug\moc_mainwindow.cpp
 
 debug/moc_myglwidget.cpp: C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL/QGLWidget \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL/qgl.h \
@@ -377,14 +377,18 @@ debug/moc_myglwidget.cpp: C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL/QGLW
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL/qtopenglglobal.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QSurfaceFormat \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qsurfaceformat.h \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QKeyEvent \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/QTimer \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qtimer.h \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qbasictimer.h \
 		../CodeBrique/model.h \
 		../CodeBrique/brick.h \
 		../CodeBrique/reflector.h \
+		../CodeBrique/ball.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QImage \
 		../CodeBrique/paddle.h \
 		../CodeBrique/wall.h \
-		../CodeBrique/ball.h \
 		../CodeBrique/player.h \
 		../CodeBrique/mainwindow.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets/QMainWindow \
@@ -394,7 +398,7 @@ debug/moc_myglwidget.cpp: C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL/QGLW
 		../CodeBrique/myglwidget.h \
 		debug/moc_predefs.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/bin/moc.exe
-	C:\Qt\Qt5.10.1\5.10.1\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Clément/Documents/FISE2/Projet Casse_Brique/Casse-brique/LeCode/CodeBrique" -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtANGLE -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore -I. -IC:/Qt/Qt5.10.1/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.10.1/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\CodeBrique\myglwidget.h -o debug\moc_myglwidget.cpp
+	C:\Qt\Qt5.10.1\5.10.1\mingw53_32\bin\moc.exe $(DEFINES) --include debug/moc_predefs.h -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/mkspecs/win32-g++ -I"C:/Users/Clément/Documents/FISE2/Projet Casse_Brique/Casse-brique/LeCode/CodeBrique" -IC:/OpenCV/opencv-2.4.13.5/build/install/include -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtANGLE -IC:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore -I. -IC:/Qt/Qt5.10.1/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include -IC:/Qt/Qt5.10.1/Tools/mingw530_32/lib/gcc/i686-w64-mingw32/5.3.0/include-fixed -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include/c++ -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include/c++/i686-w64-mingw32 -IC:/Qt/Qt5.10.1/Tools/mingw530_32/i686-w64-mingw32/include/c++/backward ..\CodeBrique\myglwidget.h -o debug\moc_myglwidget.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -527,14 +531,18 @@ ui_mainwindow.h: ../CodeBrique/mainwindow.ui \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL/qtopenglglobal.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QSurfaceFormat \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qsurfaceformat.h \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QKeyEvent \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/QTimer \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qtimer.h \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qbasictimer.h \
 		../CodeBrique/model.h \
 		../CodeBrique/brick.h \
 		../CodeBrique/reflector.h \
+		../CodeBrique/ball.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QImage \
 		../CodeBrique/paddle.h \
 		../CodeBrique/wall.h \
-		../CodeBrique/ball.h \
 		../CodeBrique/player.h \
 		../CodeBrique/mainwindow.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets/QMainWindow \
@@ -682,14 +690,18 @@ debug/main.o: ../CodeBrique/main.cpp ../CodeBrique/mainwindow.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL/qtopenglglobal.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QSurfaceFormat \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qsurfaceformat.h \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QKeyEvent \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/QTimer \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qtimer.h \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qbasictimer.h \
 		../CodeBrique/model.h \
 		../CodeBrique/brick.h \
 		../CodeBrique/reflector.h \
+		../CodeBrique/ball.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QImage \
 		../CodeBrique/paddle.h \
 		../CodeBrique/wall.h \
-		../CodeBrique/ball.h \
 		../CodeBrique/player.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets/QApplication \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets/qapplication.h \
@@ -697,7 +709,18 @@ debug/main.o: ../CodeBrique/main.cpp ../CodeBrique/mainwindow.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qeventloop.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets/qdesktopwidget.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qguiapplication.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qinputmethod.h
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qinputmethod.h \
+		C:/OpenCV/opencv-2.4.13.5/build/install/include/opencv2/video/tracking.hpp \
+		C:/OpenCV/opencv-2.4.13.5/build/install/include/opencv2/core/core.hpp \
+		C:/OpenCV/opencv-2.4.13.5/build/install/include/opencv2/core/types_c.h \
+		C:/OpenCV/opencv-2.4.13.5/build/install/include/opencv2/core/version.hpp \
+		C:/OpenCV/opencv-2.4.13.5/build/install/include/opencv2/core/operations.hpp \
+		C:/OpenCV/opencv-2.4.13.5/build/install/include/opencv2/core/mat.hpp \
+		C:/OpenCV/opencv-2.4.13.5/build/install/include/opencv2/imgproc/imgproc.hpp \
+		C:/OpenCV/opencv-2.4.13.5/build/install/include/opencv2/imgproc/types_c.h \
+		C:/OpenCV/opencv-2.4.13.5/build/install/include/opencv2/core/core_c.h \
+		C:/OpenCV/opencv-2.4.13.5/build/install/include/opencv2/highgui/highgui.hpp \
+		C:/OpenCV/opencv-2.4.13.5/build/install/include/opencv2/highgui/highgui_c.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\CodeBrique\main.cpp
 
 debug/mainwindow.o: ../CodeBrique/mainwindow.cpp ../CodeBrique/mainwindow.h \
@@ -874,26 +897,33 @@ debug/mainwindow.o: ../CodeBrique/mainwindow.cpp ../CodeBrique/mainwindow.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL/qtopenglglobal.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QSurfaceFormat \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qsurfaceformat.h \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QKeyEvent \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/QTimer \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qtimer.h \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qbasictimer.h \
 		../CodeBrique/model.h \
 		../CodeBrique/brick.h \
 		../CodeBrique/reflector.h \
+		../CodeBrique/ball.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QImage \
 		../CodeBrique/paddle.h \
 		../CodeBrique/wall.h \
-		../CodeBrique/ball.h \
 		../CodeBrique/player.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\CodeBrique\mainwindow.cpp
 
-debug/reflector.o: ../CodeBrique/reflector.cpp ../CodeBrique/reflector.h
+debug/reflector.o: ../CodeBrique/reflector.cpp ../CodeBrique/reflector.h \
+		../CodeBrique/ball.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\reflector.o ..\CodeBrique\reflector.cpp
 
 debug/wall.o: ../CodeBrique/wall.cpp ../CodeBrique/wall.h \
-		../CodeBrique/reflector.h
+		../CodeBrique/reflector.h \
+		../CodeBrique/ball.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\wall.o ..\CodeBrique\wall.cpp
 
 debug/brick.o: ../CodeBrique/brick.cpp ../CodeBrique/brick.h \
 		../CodeBrique/reflector.h \
+		../CodeBrique/ball.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qstring.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qchar.h \
@@ -1021,6 +1051,7 @@ debug/brick.o: ../CodeBrique/brick.cpp ../CodeBrique/brick.h \
 
 debug/paddle.o: ../CodeBrique/paddle.cpp ../CodeBrique/paddle.h \
 		../CodeBrique/reflector.h \
+		../CodeBrique/ball.h \
 		../CodeBrique/mainwindow.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets/QMainWindow \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets/qmainwindow.h \
@@ -1130,134 +1161,7 @@ debug/paddle.o: ../CodeBrique/paddle.cpp ../CodeBrique/paddle.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\paddle.o ..\CodeBrique\paddle.cpp
 
-debug/ball.o: ../CodeBrique/ball.cpp ../CodeBrique/ball.h \
-		../CodeBrique/reflector.h \
-		../CodeBrique/wall.h \
-		../CodeBrique/brick.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/QString \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qstring.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qchar.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qglobal.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qconfig-bootstrapped.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qconfig.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qtcore-config.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qsystemdetection.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qprocessordetection.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qcompilerdetection.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qtypeinfo.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qsysinfo.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qlogging.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qflags.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qatomic.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qbasicatomic.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qatomic_bootstrap.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qgenericatomic.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qatomic_cxx11.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qatomic_msvc.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qglobalstatic.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qmutex.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qnumeric.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qversiontagging.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qbytearray.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qrefcount.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qnamespace.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qarraydata.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qstringliteral.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qstringalgorithms.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qstringview.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QImage \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qimage.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qtguiglobal.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qtgui-config.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qcolor.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qrgb.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qstringlist.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qlist.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qalgorithms.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qiterator.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qhashfunctions.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qpair.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qbytearraylist.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qregexp.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qstringmatcher.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qrgba64.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qpaintdevice.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qrect.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qmargins.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qsize.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qpoint.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qpixelformat.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qtransform.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qmatrix.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qpolygon.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qvector.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qregion.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qdatastream.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qscopedpointer.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qiodevice.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qobject.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qcoreevent.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qmetatype.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qvarlengtharray.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qcontainerfwd.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qobject_impl.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qline.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qpainterpath.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL/QGLWidget \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL/qgl.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qopengl.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qt_windows.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtANGLE/GLES3/gl3.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtANGLE/GLES3/gl3platform.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtANGLE/KHR/khrplatform.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtANGLE/GLES2/gl2.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtANGLE/GLES2/gl2platform.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qopengles2ext.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qopenglext.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets/qwidget.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qpalette.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qbrush.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qpixmap.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qshareddata.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qhash.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qfont.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qfontmetrics.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qfontinfo.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qcursor.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qkeysequence.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qevent.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qvariant.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qmap.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qdebug.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qtextstream.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qlocale.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qset.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qcontiguouscache.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qurl.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qurlquery.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qfile.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qfiledevice.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qvector2d.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qtouchdevice.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qpaintengine.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qpainter.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qtextoption.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qpen.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL/qglcolormap.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL/qtopenglglobal.h \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QSurfaceFormat \
-		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qsurfaceformat.h \
-		../CodeBrique/paddle.h
+debug/ball.o: ../CodeBrique/ball.cpp ../CodeBrique/ball.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\ball.o ..\CodeBrique\ball.cpp
 
 debug/player.o: ../CodeBrique/player.cpp ../CodeBrique/player.h
@@ -1266,6 +1170,7 @@ debug/player.o: ../CodeBrique/player.cpp ../CodeBrique/player.h
 debug/model.o: ../CodeBrique/model.cpp ../CodeBrique/model.h \
 		../CodeBrique/brick.h \
 		../CodeBrique/reflector.h \
+		../CodeBrique/ball.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qstring.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qchar.h \
@@ -1391,7 +1296,6 @@ debug/model.o: ../CodeBrique/model.cpp ../CodeBrique/model.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qsurfaceformat.h \
 		../CodeBrique/paddle.h \
 		../CodeBrique/wall.h \
-		../CodeBrique/ball.h \
 		../CodeBrique/player.h \
 		../CodeBrique/mainwindow.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets/QMainWindow \
@@ -1522,14 +1426,18 @@ debug/myglwidget.o: ../CodeBrique/myglwidget.cpp ../CodeBrique/myglwidget.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtOpenGL/qtopenglglobal.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QSurfaceFormat \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/qsurfaceformat.h \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QKeyEvent \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/QTimer \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qtimer.h \
+		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/qbasictimer.h \
 		../CodeBrique/model.h \
 		../CodeBrique/brick.h \
 		../CodeBrique/reflector.h \
+		../CodeBrique/ball.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtCore/QString \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtGui/QImage \
 		../CodeBrique/paddle.h \
 		../CodeBrique/wall.h \
-		../CodeBrique/ball.h \
 		../CodeBrique/player.h \
 		../CodeBrique/mainwindow.h \
 		C:/Qt/Qt5.10.1/5.10.1/mingw53_32/include/QtWidgets/QMainWindow \
