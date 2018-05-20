@@ -134,7 +134,7 @@ void Model::update(const float timeInDays){
 //        w->Bounce(ball_);
 //    }
    walls_[0]->Bounce(ball_);
-//    paddle_->Bounce(ball_->getx_(),ball_->gety_(),ball_->getspeedx_(),ball_->getspeedy_());*/
+    paddle_->Bounce(ball_);
 
 
     ball_->Move(timeInDays);
