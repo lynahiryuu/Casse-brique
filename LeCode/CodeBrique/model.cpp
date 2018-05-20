@@ -50,7 +50,9 @@ void Model::StartNewGame(){
 
 
     //Création de la balle
-    ball_ = new Ball();
+    ball_ = new Ball(-0.1,-0.1);
+    ball2_ = new Ball(0.1,-0.1);
+    ball3_ = new Ball(0.1,0.1);
 
     //Création du paddle
     paddle_ = new Paddle(0,5);
@@ -102,6 +104,8 @@ void Model::Display() const{
         w->Display();
     }
     ball_->Display();
+    ball2_->Display();
+    ball3_->Display();
     paddle_->Display();
 }
 
@@ -121,13 +125,23 @@ void Model::update(const float timeInDays){
 
    for(Brick* b: bricks_){
         b->Bounce(ball_);
+        b->Bounce(ball2_);
+        b->Bounce(ball3_);
     }
 
    walls_[0]->Bounce(ball_);
+   walls_[0]->Bounce(ball2_);
+   walls_[0]->Bounce(ball3_);
+
     paddle_->Bounce(ball_);
+    paddle_->Bounce(ball2_);
+    paddle_->Bounce(ball3_);
 
 
     ball_->Move(timeInDays);
+    ball2_->Move(timeInDays);
+    ball3_->Move(timeInDays);
+
     paddle_->movePaddle(direction_paddle_);
     Display();
 

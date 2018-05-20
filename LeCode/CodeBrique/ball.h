@@ -7,7 +7,7 @@
 class Ball
 {
 public:
-    Ball();
+    Ball(double speedx, double speedy);
     ~Ball();
     void Move(const float timeInDays);
 //    void BounceOn(Reflector* r);

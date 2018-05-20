@@ -69,12 +69,8 @@ void Brick::Bounce(Ball* b)
 
 void Brick::Display() const{
     if(!destroy_){
-    int R_,V_,B_;
-    R_=250;
-    V_=20;
-    B_=89;
-    glPushMatrix();
 
+    glPushMatrix();
     glBegin(GL_QUADS);
     glColor3ub(255,0,0);
     glVertex3f(x_,y_, -1.0f);

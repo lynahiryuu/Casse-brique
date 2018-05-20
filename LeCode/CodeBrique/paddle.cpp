@@ -39,10 +39,10 @@ void Paddle::Display() const{
 
     glPushMatrix();
     if (direction_ == -1 && x_ > -15){
-        glTranslated(-0.2,0.0,0.0);
+        glTranslated(-1,0.0,0.0);
     }
     else if(direction_ == 1  && x_ < 15-width_){
-        glTranslated(0.2,0.0,0.0);
+        glTranslated(1,0.0,0.0);
     }
 // Affichage du paddle
     glBegin(GL_QUADS);
@@ -100,12 +100,12 @@ double Paddle::getX(){
 void Paddle::movePaddle(int direction){
     if (direction == -1 && this->getX() > -15){
         direction_ = direction;
-        this->setX(this->getX()-0.2);
+        this->setX(this->getX()-1);
         //glTranslated(-1,0.0,0.0);
     }
     else if(direction == 1 && this->getX() < 15-width_){
         direction_ = direction;
-        this->setX(this->getX()+0.2);
+        this->setX(this->getX()+1);
         //glTranslated(1,0.0,0.0);
     }
 }
