@@ -25,7 +25,7 @@ void Model::StartNewGame(){
 
 //    bricks_.push_back((new Brick(0,0)));
     for(int i=0;i<10;i++){
-        for (int j=0;j<3;j++){
+        for (int j=0;j<10;j++){
             GLfloat a = GLfloat(i);
             GLfloat b = GLfloat(j);
             // Il faut changer les valeurs de décalage : on avait mis ça pour voir les briques

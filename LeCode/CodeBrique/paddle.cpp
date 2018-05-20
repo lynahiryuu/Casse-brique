@@ -6,8 +6,8 @@ Paddle::Paddle(double x, double y):Reflector()
 {
  x_ = x;
  y_ = y;
- heigth_ = 2;
- width_ = 8;
+ heigth_ = 1;
+ width_ = 5;
  direction_ =0;
  //paddle_quadric_=gluNewQuadric();
 }
@@ -22,24 +22,11 @@ void Paddle::Bounce(Ball* b){
     float dist=0.1;// Taille de la zone de contact avec les briques
     float ballDiameter=0.5;
     //Si la balle arrive du bas :
-    if (b->Into(x_+b->getRadius_(),y_-heigth_-b->getRadius_(),x_-width_-b->getRadius_(),y_-heigth_-b->getRadius_()-dist) )
-    {
-        b->setspeedy_(-b->getspeedy_());
-    }
+
     //Si la balle arrive du haut :
-    else if(b->Into(x_+b->getRadius_(),y_+b->getRadius_(),x_-width_-b->getRadius_(),y_+b->getRadius_()+dist))
+    if(b->Into(x_+b->getRadius_(),y_+b->getRadius_(),x_-width_-b->getRadius_(),y_+b->getRadius_()+dist))
     {
         b->setspeedy_(-b->getspeedy_());
-    }
-    //Si la balle arrive de gauche
-    else if(b->Into(x_+b->getRadius_()+dist,y_+b->getRadius_(),x_+b->getRadius_(),y_-heigth_-b->getRadius_()))
-    {
-        b->setspeedx_(-b->getspeedx_());
-    }
-    //Si la balle arrive de droite
-    else if(b->Into(x_-width_-b->getRadius_(),y_+b->getRadius_(),x_-width_-b->getRadius_()-dist,y_-heigth_-b->getRadius_()))
-    {
-        b->setspeedx_(-b->getspeedx_());
     }
 
 }
@@ -96,12 +83,12 @@ void Paddle::Display() const{
     glPopMatrix();
 }
 
-void Paddle::setX(int x)
+void Paddle::setX(double x)
 {
      x_ = x;
 }
 
-int Paddle::getX(){
+double Paddle::getX(){
     return x_;
 }
 
@@ -109,12 +96,12 @@ int Paddle::getX(){
 void Paddle::movePaddle(int direction){
     if (direction == -1 && this->getX() > -10){
         direction_ = direction;
-        this->setX(this->getX()-1);
+        this->setX(this->getX()-0.2);
         //glTranslated(-1,0.0,0.0);
     }
     else if(direction == 1 && this->getX() < 10){
         direction_ = direction;
-        this->setX(this->getX()+1);
+        this->setX(this->getX()+0.2);
         //glTranslated(1,0.0,0.0);
     }
 }

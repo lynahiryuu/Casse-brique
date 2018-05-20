@@ -10,9 +10,9 @@ public:
     Paddle(double x, double y);
     ~Paddle();
     void Bounce(Ball *b);
-    void setX(int x);
+    void setX(double x);
     void Display() const;
-    int getX();
+    double getX();
     void movePaddle(int direction);
 
 

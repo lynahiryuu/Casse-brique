@@ -49,24 +49,7 @@ Wall::~Wall(){
 }
 
 void Wall::Display()const{
-//cout<<"on est dans display"<<endl;
-    /*int R_,V_,B_;
-    R_=20;
-    V_=20;
-    B_=259;*/
-
     glPushMatrix();
-    /*// Couleur de l'objet
-    GLfloat colorAmbiante[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
-    GLfloat colorDiffuse[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
-    //GLfloat colorSpeculaire_planet[] = {0.5f, 0.5f, 0.5f, 1.0f};
-
-    glMaterialfv(GL_FRONT, GL_AMBIENT, colorAmbiante);
-    glMaterialfv(GL_FRONT, GL_DIFFUSE, colorDiffuse);
-
-    gluCylinder(wall_quadric_, 2, 2, 12.0, 50.0, 50.0);
-    //gluSphere(wall_quadric_, 0.6, 50.0, 50.0);
-    glPopMatrix();*/
 
     switch(id_)
     {
@@ -75,19 +58,7 @@ void Wall::Display()const{
     {
         //cout<<"entré dans 1"<<endl;
         glRotated(90,0,0,1);
-        glTranslated(-6.0,-14.8,0);
-        //glPushMatrix();
-        // Couleur de l'objet
-        /*GLfloat colorAmbiante[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
-            GLfloat colorDiffuse[] = {GLfloat(R_)/255, GLfloat(V_)/255, GLfloat(B_)/255, 1.0f};
-            //GLfloat colorSpeculaire_planet[] = {0.5f, 0.5f, 0.5f, 1.0f};
-
-            glMaterialfv(GL_FRONT, GL_AMBIENT, colorAmbiante);
-            glMaterialfv(GL_FRONT, GL_DIFFUSE, colorDiffuse);
-
-            gluCylinder(wall_quadric_, 0.2, 0.2, 12.0, 50.0, 50.0);*/
-
-
+        glTranslated(0.0,-14.8,0);
         break;
     }
         //Haut
@@ -104,7 +75,7 @@ void Wall::Display()const{
     {
         //cout<<"entré dans 3"<<endl;
         glRotated(90,0,0,1);
-        glTranslated(-6.0,14.8,0);
+        glTranslated(-12.0,14.8,0);
         break;
     }
         //Bas
@@ -177,7 +148,7 @@ void Wall::Bounce(Ball* b){
     // La balle change cap :
 
     // Mur Haut:
-    if (b->gety_()>= 12)
+    if (b->gety_()>= 10)
     {
         cout<<"haut"<<endl;
 
@@ -186,21 +157,20 @@ void Wall::Bounce(Ball* b){
     // Mur Bas :
     else if(b->gety_() <= -10)
     {
-
         cout<<"bas"<<endl;
         b->setspeedy_(b->getspeedy_()*(-1));
 
         //perdre une vie();
     }
     // Mur Droite
-    else if(b->getx_() >= 30)
+    if(b->getx_() >= 15)
     {
         cout<<"droite"<<endl;
 
         b->setspeedx_(b->getspeedx_()*(-1));
     }
     // Mur Gauche :
-    else if(b->getx_() <= -10)
+    else if(b->getx_() <= -15)
     {
         cout<<"gauche"<<endl;
 

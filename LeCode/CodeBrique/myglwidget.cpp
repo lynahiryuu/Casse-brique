@@ -6,8 +6,8 @@
 using namespace std;
 
 // Declarations des constantes
-const unsigned int WIN_WIDTH  = 30;
-const unsigned int WIN_HEIGHT = 12;
+const unsigned int WIN_WIDTH  = 15;
+const unsigned int WIN_HEIGHT = 6;
 const float MAX_DIMENSION     = 15.0f;
 
 
@@ -62,8 +62,9 @@ void MyGLWidget::resizeGL(int width, int height)
     glLoadIdentity();
 
     if(width != 0)
+//         glOrtho(-MAX_DIMENSION, MAX_DIMENSION,-6.0,6.0,0.0,10.0);
         glOrtho(-MAX_DIMENSION, MAX_DIMENSION, -MAX_DIMENSION * height / static_cast<float>(width), MAX_DIMENSION * height / static_cast<float>(width), -MAX_DIMENSION * 2.0f, MAX_DIMENSION * 2.0f);
-       // glOrtho(0.0,30.0,0.0,30.0,-5.0,5.0);
+//        glOrtho(0.0,30.0,0.0,30.0,-5.0,5.0);
 
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();

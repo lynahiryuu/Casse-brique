@@ -1,5 +1,8 @@
 #include "brick.h"
 #include "ball.h"
+#include <iostream>
+
+using namespace std;
 
 Brick::Brick(float x, float y ):Reflector()
 {
@@ -8,6 +11,7 @@ Brick::Brick(float x, float y ):Reflector()
     heigth_=1;
     width_=3;
     imPath_= ":/Textures/brick.png";
+    destroy_=false;
 }
 
 //Destructeur
@@ -18,38 +22,46 @@ Brick::~Brick(){
 
 
 void Brick::Bounce(Ball* b)
-{
+{ if(!destroy_){
     // La balle change cap :
-
     float dist=0.1;// Taille de la zone de contact avec les briques
     float ballDiameter=0.5;
     //Si la balle arrive du bas :
     if (b->Into(x_,y_-heigth_-b->getRadius_(),x_-width_,y_-heigth_-b->getRadius_()-dist) )
     {
+        cout<<"brickBas"<<endl;
         b->setspeedy_(-b->getspeedy_());
+        destroy_=true;
     }
     //Si la balle arrive du haut :
     else if(b->Into(x_,y_+b->getRadius_(),x_-width_,y_+b->getRadius_()+dist))
     {
+        cout<<"brickHaut"<<endl;
         b->setspeedy_(-b->getspeedy_());
+        destroy_=true;
     }
     //Si la balle arrive de gauche
     else if(b->Into(x_+b->getRadius_()+dist,y_,x_+b->getRadius_(),y_-heigth_))
     {
+        cout<<"brickGauche"<<endl;
         b->setspeedx_(-b->getspeedx_());
+        destroy_=true;
     }
     //Si la balle arrive de droite
     else if(b->Into(x_-width_-b->getRadius_(),y_,x_-width_-b->getRadius_()-dist,y_-heigth_))
     {
+        cout<<"brickDroite"<<endl;
         b->setspeedx_(-b->getspeedx_());
+        destroy_=true;
     }
-
+}
  // La brique est détruite
 // delete this;
 }
 
 
 void Brick::Display() const{
+    if(!destroy_){
     int R_,V_,B_;
     R_=250;
     V_=20;
@@ -111,6 +123,7 @@ void Brick::Display() const{
     // Matrice de translation
 
     glPopMatrix();
+    }
 }
 
 

@@ -25,6 +25,7 @@ private:
     double heigth_;
     double width_;
     QString imPath_;
+    bool destroy_;
     //GLUquadric *brick_quadric_;
 };
 
