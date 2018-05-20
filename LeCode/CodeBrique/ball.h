@@ -12,7 +12,7 @@ class Ball
 public:
     Ball();
     ~Ball();
-    void Move();
+    void Move(const float timeInDays);
     void BounceOn(Reflector* r);
 
     double getx_();

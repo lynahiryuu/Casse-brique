@@ -15,12 +15,13 @@ MyGLWidget::MyGLWidget(QWidget * parent) : QGLWidget(parent)
 {
     // Connexion du timer
     connect(&m_AnimationTimer_,  &QTimer::timeout, [&] {
+        m_TimeElapsed += 1.0f / 12.0f;
         //updateModel();
         updateGL();
     });
 
     m_AnimationTimer_.setInterval(10);
-    //m_AnimationTimer_.start();
+    m_AnimationTimer_.start();
 
 //    setFixedSize(WIN_WIDTH,WIN_HEIGHT);
     move(QApplication::desktop()->screen()->rect().center()-rect().center());
@@ -28,8 +29,8 @@ MyGLWidget::MyGLWidget(QWidget * parent) : QGLWidget(parent)
 
 }
 
-void MyGLWidget::updateModel(){
-    model_->update();
+void MyGLWidget::updateModel(const float timeInDays){
+    model_->update(timeInDays);
 }
 
 // Fonction d'initialisation
@@ -82,7 +83,7 @@ void MyGLWidget::paintGL()
     // Placement de la caméra
     gluLookAt(0.0,0.0,5.0,0.0,0.0,0.0,0.0,-1.0,0.0);
     //cout<<"on est dans paint"<<endl;
-    updateModel();
+    updateModel(m_TimeElapsed);
     //model_->Display();
 }
 

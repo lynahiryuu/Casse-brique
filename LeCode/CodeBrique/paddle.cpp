@@ -44,11 +44,11 @@ void Paddle::Bounce(double ball_x, double ball_y, double speed_ball_X, double sp
 void Paddle::Display() const{
 
     glPushMatrix();
-    if (direction_ == -1){
-        glTranslated(-1,0.0,0.0);
+    if (direction_ == -1 && x_ > -10){
+        glTranslated(-1.0,0.0,0.0);
     }
-    else if(direction_ == 1){
-        glTranslated(1,0.0,0.0);
+    else if(direction_ == 1  && x_ < 10){
+        glTranslated(1.0,0.0,0.0);
     }
 // Affichage du paddle
     glBegin(GL_QUADS);
@@ -104,12 +104,12 @@ int Paddle::getX(){
 
 
 void Paddle::movePaddle(int direction){
-    if (direction == -1){
+    if (direction == -1 && this->getX() > -10){
         direction_ = direction;
         this->setX(this->getX()-1);
         //glTranslated(-1,0.0,0.0);
     }
-    else if(direction == 1){
+    else if(direction == 1 && this->getX() < 10){
         direction_ = direction;
         this->setX(this->getX()+1);
         //glTranslated(1,0.0,0.0);
