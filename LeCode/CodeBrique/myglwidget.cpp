@@ -29,9 +29,29 @@ MyGLWidget::MyGLWidget(QWidget * parent) : QGLWidget(parent)
 
 }
 
+
+int speedToInt(Point p){
+    int direction;
+    if(p.x<-20){
+        direction=-1;
+    }
+    else if(p.x>20){
+        direction=1;
+    }
+    else if(p.y>20 || p.y<-20){
+        direction=0;
+    }
+    return direction;
+}
+
+
 void MyGLWidget::updateModel(const float timeInDays){
+    int n = this->speedToInt(getSpeedVector());
+    model_->setDirectionPaddle(n);
     model_->update(timeInDays);
 }
+
+
 
 // Fonction d'initialisation
 void MyGLWidget::initializeGL()
@@ -140,4 +160,8 @@ void MyGLWidget::keyPressEvent(QKeyEvent * event)
 
 void MyGLWidget::setSpeedVector(Point p){
     speedVector_=p;
+}
+
+Point MyGLWidget::getSpeedVector(){
+    return speedVector_;
 }

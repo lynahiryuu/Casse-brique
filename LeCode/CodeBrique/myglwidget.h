@@ -20,7 +20,8 @@ class MyGLWidget : public QGLWidget
 public:
     MyGLWidget(QWidget * parent = nullptr);
     void setSpeedVector(Point p);
-
+    int speedToInt(Point p);
+    Point getSpeedVector();
 protected:
     // Fonction d'initialisation
     void initializeGL();

@@ -1,12 +1,14 @@
 #ifndef MODEL_H
 #define MODEL_H
-#include <vector>
 #include "brick.h"
 #include "paddle.h"
 #include "wall.h"
 #include "ball.h"
 #include "player.h"
 #include "mainwindow.h"
+
+#include <vector>
+
 
 
 

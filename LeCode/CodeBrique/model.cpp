@@ -1,12 +1,14 @@
 #include "model.h"
-#include <random>
-#include <vector>
-#include <algorithm>
+
 #include "brick.h"
 #include "wall.h"
 #include "player.h"
 #include "paddle.h"
 #include "mainwindow.h"
+
+#include <algorithm>
+#include <random>
+#include <vector>
 #include <iostream>
 using namespace std;
 
