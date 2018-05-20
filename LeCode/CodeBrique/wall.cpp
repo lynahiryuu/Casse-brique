@@ -120,21 +120,20 @@ void Wall::Display()const{
 void Wall::Bounce(Ball* b){
     // La balle change cap :
 
-    // Mur Haut:
+    // Mur Bas:
     if (b->gety_()>= 10)
     {
-        //cout<<"haut"<<endl;
-
-        b->setspeedy_(b->getspeedy_()*(-1));
-    }
-    // Mur Bas :
-    else if(b->gety_() <= -10)
-    {
         //cout<<"bas"<<endl;
+
         b->setspeedy_(b->getspeedy_()*(-1));
         destructor_ = true;
-
-        //perdre une vie();
+        cout<<destructor_<<endl;
+    }
+    // Mur Haut :
+    else if(b->gety_() <= -10)
+    {
+        //cout<<"haut"<<endl;
+        b->setspeedy_(b->getspeedy_()*(-1));
     }
     // Mur Droite
     if(b->getx_() >= 15)
