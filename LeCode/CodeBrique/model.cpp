@@ -62,6 +62,7 @@ void Model::StartNewGame(){
 void Model::LoseLife()
 {
     //Si on a touché le mur du bas, alors on perds un point de vie
+    cout<<"On rentre dans loseLife"<<endl;
     if (walls_[0]->getDestructor())
     {
         player_->setHP(player_->getHP()-1);
