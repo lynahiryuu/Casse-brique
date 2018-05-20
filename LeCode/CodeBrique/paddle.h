@@ -17,6 +17,7 @@ public:
 
 
 private:
+    // Enregistre la coordonnée du point en bas à droite du paddle
     double x_;
     double y_;
     double heigth_;

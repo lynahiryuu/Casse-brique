@@ -106,8 +106,8 @@ bool Model::WinGame()
 
 
 void Model::Display() const{
-    cout<<paddle_->getX()<<endl;
-    cout<<ball_->getx_()<<"###"<<endl;
+    cout<<"paddleX"<<paddle_->getX()<<endl;
+    cout<<"ballX"<<ball_->getx_()<<"###"<<endl;
     for(Brick* b: bricks_){
         b->Display();
     }

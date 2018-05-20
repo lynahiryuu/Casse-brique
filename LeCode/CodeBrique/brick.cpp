@@ -23,36 +23,38 @@ Brick::~Brick(){
 
 void Brick::Bounce(Ball* b)
 { if(!destroy_){
-    // La balle change cap :
     float dist=0.1;// Taille de la zone de contact avec les briques
     float ballDiameter=0.5;
     //Si la balle arrive du bas :
-    if (b->Into(x_,y_-heigth_-b->getRadius_(),x_-width_,y_-heigth_-b->getRadius_()-dist) )
+    if (b->Into(x_+width_,y_+dist+b->getRadius_(),x_,y_))
     {
-        cout<<"brickBas"<<endl;
+        cout<<"brickBas"<<x_<<"###"<<y_<<endl;
         b->setspeedy_(-b->getspeedy_());
         destroy_=true;
     }
     //Si la balle arrive du haut :
-    else if(b->Into(x_,y_+b->getRadius_(),x_-width_,y_+b->getRadius_()+dist))
+    else if(b->Into(x_+width_,y_-heigth_,x_,y_-heigth_-dist-b->getRadius_()))
     {
-        cout<<"brickHaut"<<endl;
+        cout<<"brickHaut"<<x_<<"###"<<y_<<endl;
         b->setspeedy_(-b->getspeedy_());
         destroy_=true;
+
     }
     //Si la balle arrive de gauche
     else if(b->Into(x_+b->getRadius_()+dist,y_,x_+b->getRadius_(),y_-heigth_))
     {
-        cout<<"brickGauche"<<endl;
+        cout<<"brickGauche"<<x_<<"###"<<y_<<endl;
         b->setspeedx_(-b->getspeedx_());
         destroy_=true;
+
     }
     //Si la balle arrive de droite
-    else if(b->Into(x_-width_-b->getRadius_(),y_,x_-width_-b->getRadius_()-dist,y_-heigth_))
+    else if(b->Into(x_-b->getRadius_(),y_,x_+width_-b->getRadius_()-dist,y_-heigth_))
     {
-        cout<<"brickDroite"<<endl;
+        cout<<"brickDroite"<<x_<<"###"<<y_<<endl;
         b->setspeedx_(-b->getspeedx_());
         destroy_=true;
+
     }
 }
  // La brique est détruite
