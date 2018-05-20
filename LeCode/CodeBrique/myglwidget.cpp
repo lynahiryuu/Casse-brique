@@ -30,13 +30,13 @@ MyGLWidget::MyGLWidget(QWidget * parent) : QGLWidget(parent)
 }
 
 
-int speedToInt(Point p){
+int MyGLWidget::speedToInt(Point p){
     int direction;
     if(p.x<-20){
-        direction=-1;
+        direction=1;
     }
     else if(p.x>20){
-        direction=1;
+        direction=-1;
     }
     else if(p.y>20 || p.y<-20){
         direction=0;
@@ -46,7 +46,7 @@ int speedToInt(Point p){
 
 
 void MyGLWidget::updateModel(const float timeInDays){
-    int n = this->speedToInt(getSpeedVector());
+    int n = this->speedToInt(this->getSpeedVector());
     model_->setDirectionPaddle(n);
     model_->update(timeInDays);
 }
