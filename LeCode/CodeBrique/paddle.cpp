@@ -18,8 +18,8 @@ Paddle::~Paddle(){
 }
 
 void Paddle::Bounce(Ball* b){
+    float totalSpeed=b->getspeedx_()+b->getspeedy_();
     // La balle change cap :
-
     float dist=0.1;// Taille de la zone de contact avec le paddle
     //Si la balle arrive du bas :
 
@@ -28,6 +28,8 @@ void Paddle::Bounce(Ball* b){
     {
         //cout<<"PADDLE"<<endl;
         b->setspeedy_(-1*b->getspeedy_());
+//        b->setspeedy_(totalSpeed*(1-(abs(b->getx_()-(x_+width_/2)))/(width_/2)));
+//        b->setspeedx_(totalSpeed-b->getspeedy_());
     }
 
 }
