@@ -19,24 +19,25 @@ Paddle::~Paddle(){
 }
 
 void Paddle::Bounce(Ball* b){
+
+    //Vitesse totale de la balle
     float totalSpeed=b->getspeedx_()+b->getspeedy_();
     // La balle change cap :
-    float dist=0.1;// Taille de la zone de contact avec le paddle
-    //Si la balle arrive du bas :
 
-    //Si la balle arrive du haut :
+    float dist=0.1;// Taille de la zone de contact avec le paddle
+
+    //Si la balle arrive du haut alors elle change de direction
     if(b->Into(x_+width_,y_-heigth_,x_,y_-heigth_-dist-b->getRadius_()))
     {
         //cout<<"PADDLE"<<endl;
         b->setspeedy_(-1*b->getspeedy_());
-//        b->setspeedy_(totalSpeed*(1-(abs(b->getx_()-(x_+width_/2)))/(width_/2)));
-//        b->setspeedx_(totalSpeed-b->getspeedy_());
     }
 
 }
 
 void Paddle::Display() const{
 
+    //Translation du palet dans l'interface graphique
     glPushMatrix();
     if (direction_ == -1 && x_ > -15){
         glTranslated(-1,0.0,0.0);
@@ -44,7 +45,8 @@ void Paddle::Display() const{
     else if(direction_ == 1  && x_ < 15-width_){
         glTranslated(1,0.0,0.0);
     }
-// Affichage du paddle
+
+    // Affichage du palet
     glBegin(GL_QUADS);
     glColor3ub(255,0,0);
     glVertex3f(x_,y_, -1.0f);
@@ -87,10 +89,15 @@ void Paddle::Display() const{
     glPopMatrix();
 }
 
+//Setter
+
 void Paddle::setX(double x)
 {
      x_ = x;
 }
+
+
+//Getter
 
 double Paddle::getX(){
     return x_;
@@ -98,14 +105,20 @@ double Paddle::getX(){
 
 
 void Paddle::movePaddle(int direction){
+
+    //Si la direction indique la droite et si le palet ne dépasse pas de la fenêtre alors déplacement de 1 vers la droite
     if (direction == -1 && this->getX() > -15){
+
         direction_ = direction;
         this->setX(this->getX()-1);
-        //glTranslated(-1,0.0,0.0);
+
     }
+
+    //Si la direction indique la gauche et si le palet ne dépasse pas de la fenêtre alors déplacement de 1 vers la gauche
     else if(direction == 1 && this->getX() < 15-width_){
+
         direction_ = direction;
         this->setX(this->getX()+1);
-        //glTranslated(1,0.0,0.0);
+
     }
 }

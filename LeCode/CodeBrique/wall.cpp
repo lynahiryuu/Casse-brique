@@ -24,6 +24,8 @@ Wall::~Wall(){
 }
 
 void Wall::Display()const{
+
+    // Affichage du mur selon son identifiant
     glPushMatrix();
 
     switch(id_)
@@ -118,31 +120,46 @@ void Wall::Display()const{
 }
 
 void Wall::Bounce(Ball* b){
-    // La balle change cap :
+    // La balle change de cap :
 
     // Mur Bas:
     if (b->gety_()>= 10)
     {
         //cout<<"bas"<<endl;
 
-        b->setspeedy_(b->getspeedy_()*(-1));
+        //On indique que la balle est détruite
+        b->set_destructed_(true);
+
+        //La position est remontée pour éviter qu'elle ne retouche une seconde fois le mur du bas
+        b->sety_(9);
+        b->setx_(9);
+
+        // La vitesse de la balle devient nulle pour éviter qu'elle ne se déplace
+        b->setspeedx_(0);
+        b->setspeedy_(0);
+
+        //On indique qu'on a touché le mur du bas, permet d'enlever les points de vie dans la méthode LoseLife de Model
         destructor_ = true;
-        cout<<destructor_<<endl;
+
+        //cout<<destructor_<<endl;
     }
-    // Mur Haut :
+
+    // Mur Haut : La balle rebondit
+
     else if(b->gety_() <= -10)
     {
         //cout<<"haut"<<endl;
         b->setspeedy_(b->getspeedy_()*(-1));
     }
-    // Mur Droite
+
+    // Mur Droite : La balle rebondit
     if(b->getx_() >= 15)
     {
         //cout<<"droite"<<endl;
 
         b->setspeedx_(b->getspeedx_()*(-1));
     }
-    // Mur Gauche :
+    // Mur Gauche : La balle rebondit
     else if(b->getx_() <= -15)
     {
         //cout<<"gauche"<<endl;
@@ -152,16 +169,20 @@ void Wall::Bounce(Ball* b){
     }
 }
 
+//Getters
+
 int Wall::getId(){
     return id_;
 }
 
-void Wall::setId(int id){
-    id_ = id;
-}
-
 bool Wall::getDestructor(){
     return destructor_;
+}
+
+//Setters
+
+void Wall::setId(int id){
+    id_ = id;
 }
 
 void Wall::setDestructor(bool destructor){

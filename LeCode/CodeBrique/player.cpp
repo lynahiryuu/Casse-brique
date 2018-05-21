@@ -7,10 +7,15 @@ Player::Player(string name)
  score_ = 0;
 }
 
+
+// Getters
+
 int Player::getHP()
 {
  return HP_;
 }
+
+// Setters
 void Player::setHP(int HP)
 {
     HP_ = HP;
