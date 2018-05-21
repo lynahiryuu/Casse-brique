@@ -3,13 +3,13 @@
 using namespace std;
 
 
-Ball::Ball()
+Ball::Ball(double speedx, double speedy)
 {
     radius_=0.5;
     setx_(8);
     sety_(8);
-    setspeedx_(-0.1);
-    setspeedy_(-0.1);
+    setspeedx_(speedx);
+    setspeedy_(speedy);
     ball_quadric_=gluNewQuadric();
 }
 
@@ -39,9 +39,10 @@ void Ball::Display() const{
     glPushMatrix();
 
     int R_,V_,B_;
-    R_=15;
-    V_=150;
-    B_=89;
+
+    R_=0;
+    V_=100;
+    B_=100;
     glTranslated(x_+speedx_,y_+speedy_,0);
 
     // Couleur de l'objet

@@ -32,6 +32,8 @@ private:
     vector<Brick *> bricks_;
     vector<Wall *> walls_;
     Ball *ball_;
+    Ball *ball2_;
+    Ball *ball3_;
     Paddle *paddle_;
     Player *player_;
     MainWindow *main_;

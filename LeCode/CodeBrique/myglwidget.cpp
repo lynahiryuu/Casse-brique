@@ -57,7 +57,7 @@ void MyGLWidget::updateModel(const float timeInDays){
 void MyGLWidget::initializeGL()
 {
     // Reglage de la couleur de fond
-    glClearColor(0.1f, 0.6f, 0.4f, 0.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_TEXTURE_2D);
     glEnable(GL_LIGHTING);
@@ -94,7 +94,7 @@ void MyGLWidget::resizeGL(int width, int height)
 // Fonction d'affichage
 void MyGLWidget::paintGL()
 {
-    glClearColor(0.8f, 0.6f, 0.4f, 0.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_DEPTH_BUFFER_BIT|GL_COLOR_BUFFER_BIT);
     glEnable(GL_DEPTH_TEST);
 
