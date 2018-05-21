@@ -24,50 +24,63 @@ Brick::~Brick(){
 
 
 void Brick::Bounce(Ball* b)
-{ if(!destroy_){
-    float dist=0.1;// Taille de la zone de contact avec les briques
-    float ballDiameter=0.5;
-    //Si la balle arrive du bas :
-    if (b->Into(x_+width_,y_+dist+b->getRadius_(),x_,y_))
-    {
-        //cout<<"brickBas"<<x_<<"###"<<y_<<endl;
-        b->setspeedy_(-b->getspeedy_());
-        destroy_=true;
-        nb_broken_brick_ += 1;
-    }
-    //Si la balle arrive du haut :
-    else if(b->Into(x_+width_,y_-heigth_,x_,y_-heigth_-dist-b->getRadius_()))
-    {
-        //cout<<"brickHaut"<<x_<<"###"<<y_<<endl;
-        b->setspeedy_(-b->getspeedy_());
-        destroy_=true;
-        nb_broken_brick_ += 1;
+{
+    //Si la brique n'est pas détruite alors on l'affiche
+    if(!destroy_){
 
-    }
-    //Si la balle arrive de gauche
-    else if(b->Into(x_+b->getRadius_()+dist,y_,x_+b->getRadius_(),y_-heigth_))
-    {
-        //cout<<"brickGauche"<<x_<<"###"<<y_<<endl;
-        b->setspeedx_(-b->getspeedx_());
-        destroy_=true;
-        nb_broken_brick_ += 1;
+        float dist=0.1;// Taille de la zone de contact avec les briques
 
-    }
-    //Si la balle arrive de droite
-    else if(b->Into(x_-b->getRadius_(),y_,x_+width_-b->getRadius_()-dist,y_-heigth_))
-    {
-        //cout<<"brickDroite"<<x_<<"###"<<y_<<endl;
-        b->setspeedx_(-b->getspeedx_());
-        destroy_=true;
-        nb_broken_brick_ += 1;
+        //Si la balle arrive du bas :
+        if (b->Into(x_+width_,y_+dist+b->getRadius_(),x_,y_))
+        {
+            //cout<<"brickBas"<<x_<<"###"<<y_<<endl;
 
+            //La balle change de direction, on indique que la brique est détruite et on augmente le nombre de briques brisées
+            b->setspeedy_(-b->getspeedy_());
+            destroy_=true;
+            nb_broken_brick_ += 1;
+        }
+        //Si la balle arrive du haut :
+        else if(b->Into(x_+width_,y_-heigth_,x_,y_-heigth_-dist-b->getRadius_()))
+        {
+            //cout<<"brickHaut"<<x_<<"###"<<y_<<endl;
+
+            //La balle change de direction, on indique que la brique est détruite et on augmente le nombre de briques brisées
+            b->setspeedy_(-b->getspeedy_());
+            destroy_=true;
+            nb_broken_brick_ += 1;
+
+        }
+        //Si la balle arrive de gauche
+        else if(b->Into(x_+b->getRadius_()+dist,y_,x_+b->getRadius_(),y_-heigth_))
+        {
+            //cout<<"brickGauche"<<x_<<"###"<<y_<<endl;
+            //La balle change de direction, on indique que la brique est détruite et on augmente le nombre de briques brisées
+
+            b->setspeedx_(-b->getspeedx_());
+            destroy_=true;
+            nb_broken_brick_ += 1;
+
+        }
+        //Si la balle arrive de droite
+        else if(b->Into(x_-b->getRadius_(),y_,x_+width_-b->getRadius_()-dist,y_-heigth_))
+        {
+            //cout<<"brickDroite"<<x_<<"###"<<y_<<endl;
+            //La balle change de direction, on indique que la brique est détruite et on augmente le nombre de briques brisées
+
+            b->setspeedx_(-b->getspeedx_());
+            destroy_=true;
+            nb_broken_brick_ += 1;
+
+        }
     }
-}
 
 }
 
 
 void Brick::Display() const{
+
+    //Si la brique n'est pas détruite alors on l'affiche
     if(!destroy_){
 
     glPushMatrix();

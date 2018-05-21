@@ -2,17 +2,34 @@
 #define PLAYER_H
 #include <string>
 using namespace std;
+
+/*
+ * Classe permettant de créer un joueur, de gérer ses points de vies, son nom et ses scores
+ */
+
 class Player
 {
 public:
-    Player(string name);
-    int getHP();
-    void setHP(int HP);
-private:
-    int score_;
-    string name_;
-    int HP_;
 
+    //Constructeur
+    Player(string name);
+
+    //Getters
+    int getHP();
+
+    //Setters
+    void setHP(int HP);
+
+private:
+
+    //Attribut contenant le score
+    int score_;
+
+    //Attribut contenant le nom du joueur
+    string name_;
+
+    //Attribut contenant ses points de vie
+    int HP_;
 
 };
 

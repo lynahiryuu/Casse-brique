@@ -115,7 +115,7 @@ int main(int argc, char *argv[])
         minMaxLoc( resultImage, &minVal, &maxVal, &minLoc, &maxLoc);
         // Compute the translation vector between the origin and the matching rect
         Point vect(maxLoc.x-templateRect.x,maxLoc.y-templateRect.y);
-        cout<<"x : "<<vect.x<<"y : "<<vect.y<<endl;
+        //cout<<"x : "<<vect.x<<"y : "<<vect.y<<endl;
         glWidget.setSpeedVector(vect);
         // Draw green rectangle and the translation vector
         rectangle(frame2,workingRect,Scalar( 0, 255, 0),2);
