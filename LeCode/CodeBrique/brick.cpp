@@ -42,7 +42,7 @@ void Brick::Bounce(Ball* b)
             nb_broken_brick_ += 1;
         }
         //Si la balle arrive du haut :
-        else if(b->Into(x_+width_,y_-heigth_,x_,y_-heigth_-dist-b->getRadius_()))
+        else if(b->Into(x_+width_,y_-heigth_-dist-b->getRadius_(),x_,y_-heigth_))
         {
             //cout<<"brickHaut"<<x_<<"###"<<y_<<endl;
             hit_=true;
@@ -54,7 +54,7 @@ void Brick::Bounce(Ball* b)
 
         }
         //Si la balle arrive de gauche
-        else if(b->Into(x_+b->getRadius_()+dist,y_,x_+b->getRadius_(),y_-heigth_))
+        else if(b->Into(x_+b->getRadius_()+dist+width_,y_,x_+width_,y_-heigth_))
         {
             //cout<<"brickGauche"<<x_<<"###"<<y_<<endl;
             hit_=true;
@@ -67,7 +67,7 @@ void Brick::Bounce(Ball* b)
 
         }
         //Si la balle arrive de droite
-        else if(b->Into(x_-b->getRadius_(),y_,x_+width_-b->getRadius_()-dist,y_-heigth_))
+        else if(b->Into(x_,y_,x_-b->getRadius_()-dist,y_-heigth_))
         {
             //cout<<"brickDroite"<<x_<<"###"<<y_<<endl;
             hit_=true;
