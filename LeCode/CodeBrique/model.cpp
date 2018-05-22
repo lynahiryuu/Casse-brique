@@ -70,7 +70,16 @@ void Model::StartNewGame(){
 
 }
 
+void Model::updateScore(){
+    for(Brick* b: bricks_){
+        if (b->getHit()==true){
+            player_->setScore(player_->getScore()+1);
+            b->setHit(false);
+        }
+    }
+    cout<<"Score actuel:"<<player_->getScore()<<endl;
 
+}
 
 void Model::LoseLife()
 {
@@ -156,6 +165,9 @@ void Model::update(){
     this->LoseLife();
     this->WinGame();
 
+    // Mise à jour du score
+    updateScore();
+
     // Teste si la balle rebondit sur un mur, une brique ou un paddle
     for(Brick* b: bricks_){
         b->Bounce(ball_);
@@ -178,6 +190,7 @@ void Model::update(){
 
     // Déplacement du palet
     paddle_->movePaddle(direction_paddle_);
+
 
     // Appel de la fonction d'affichage
     Display();

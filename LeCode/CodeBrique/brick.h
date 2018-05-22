@@ -32,10 +32,12 @@ public:
     int getX();
     int getY();
     int get_nb_broken_brick();
+    bool getHit();
 
     //Setters
     void setX(int x);
     void setY(int y);
+    void setHit(bool b);
 
     /* Méthode issue de la classe abstraite Reflector
      * permettant d'afficher la brique
@@ -47,6 +49,9 @@ private:
 
     //Attribut permettant de savoir combien de briques ont été touchées
     int nb_broken_brick_;
+
+    // Attribut qui permet de savoir si la brique a été touchée à cet instant
+    bool hit_;
 
     //Coordonnées en bas à droite de la brique
     GLfloat x_;

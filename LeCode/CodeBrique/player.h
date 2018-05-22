@@ -16,9 +16,11 @@ public:
 
     //Getters
     int getHP();
+    int getScore();
 
     //Setters
     void setHP(int HP);
+    void setScore(int score);
 
 private:
 

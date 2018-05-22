@@ -15,8 +15,15 @@ int Player::getHP()
  return HP_;
 }
 
+int Player::getScore(){
+    return score_;
+}
 // Setters
 void Player::setHP(int HP)
 {
     HP_ = HP;
+}
+
+void Player::setScore(int score){
+    score_=score;
 }

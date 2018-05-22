@@ -46,6 +46,7 @@ public:
 
     //Méthode permettant de mettre à jour les composants
     void update();
+    void updateScore();
 
     //Setters
     void setDirectionPaddle(int direction);

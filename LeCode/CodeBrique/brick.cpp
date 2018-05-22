@@ -14,6 +14,7 @@ Brick::Brick(float x, float y ):Reflector()
     imPath_= ":/Textures/brick.png";
     destroy_=false;
     nb_broken_brick_=0;
+    hit_=false;
 }
 
 //Destructeur
@@ -27,13 +28,13 @@ void Brick::Bounce(Ball* b)
 {
     //Si la brique n'est pas détruite alors on l'affiche
     if(!destroy_){
-
         float dist=0.1;// Taille de la zone de contact avec les briques
 
         //Si la balle arrive du bas :
         if (b->Into(x_+width_,y_+dist+b->getRadius_(),x_,y_))
         {
             //cout<<"brickBas"<<x_<<"###"<<y_<<endl;
+            hit_=true;
 
             //La balle change de direction, on indique que la brique est détruite et on augmente le nombre de briques brisées
             b->setspeedy_(-b->getspeedy_());
@@ -44,6 +45,7 @@ void Brick::Bounce(Ball* b)
         else if(b->Into(x_+width_,y_-heigth_,x_,y_-heigth_-dist-b->getRadius_()))
         {
             //cout<<"brickHaut"<<x_<<"###"<<y_<<endl;
+            hit_=true;
 
             //La balle change de direction, on indique que la brique est détruite et on augmente le nombre de briques brisées
             b->setspeedy_(-b->getspeedy_());
@@ -55,6 +57,8 @@ void Brick::Bounce(Ball* b)
         else if(b->Into(x_+b->getRadius_()+dist,y_,x_+b->getRadius_(),y_-heigth_))
         {
             //cout<<"brickGauche"<<x_<<"###"<<y_<<endl;
+            hit_=true;
+
             //La balle change de direction, on indique que la brique est détruite et on augmente le nombre de briques brisées
 
             b->setspeedx_(-b->getspeedx_());
@@ -66,6 +70,8 @@ void Brick::Bounce(Ball* b)
         else if(b->Into(x_-b->getRadius_(),y_,x_+width_-b->getRadius_()-dist,y_-heigth_))
         {
             //cout<<"brickDroite"<<x_<<"###"<<y_<<endl;
+            hit_=true;
+
             //La balle change de direction, on indique que la brique est détruite et on augmente le nombre de briques brisées
 
             b->setspeedx_(-b->getspeedx_());
@@ -141,6 +147,10 @@ int Brick::get_nb_broken_brick(){
     return nb_broken_brick_;
 }
 
+bool Brick::getHit(){
+    return hit_;
+}
+
 //Setters
 
 void Brick::setX(int x){
@@ -148,4 +158,7 @@ void Brick::setX(int x){
 }
 void Brick::setY(int y){
     y_=y;
+}
+void Brick::setHit(bool b){
+    hit_=b;
 }
