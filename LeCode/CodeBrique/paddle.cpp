@@ -21,16 +21,18 @@ Paddle::~Paddle(){
 void Paddle::Bounce(Ball* b){
 
     //Vitesse totale de la balle
-    float totalSpeed=b->getspeedx_()+b->getspeedy_();
+    double totalSpeed=abs(b->getspeedx_())+abs(b->getspeedy_());
     // La balle change cap :
 
-    float dist=0.1;// Taille de la zone de contact avec le paddle
+    float dist=0.05;// Taille de la zone de contact avec le paddle
 
     //Si la balle arrive du haut alors elle change de direction
     if(b->Into(x_+width_,y_-heigth_,x_,y_-heigth_-dist-b->getRadius_()))
     {
         //cout<<"PADDLE"<<endl;
-        b->setspeedy_(-1*b->getspeedy_());
+        double distToRight=(b->getx_()-x_)/(width_);
+        b->setspeedy_(-totalSpeed*(abs(0.5-distToRight)));
+        b->setspeedx_(-totalSpeed-b->getspeedy_());
     }
 
 }

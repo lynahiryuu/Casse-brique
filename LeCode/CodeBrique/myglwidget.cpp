@@ -58,7 +58,7 @@ void MyGLWidget::updateModel(){
     int n = this->speedToInt(this->getSpeedVector());
 
     // Mise à jour des directions du palet
-    model_->setDirectionPaddle(n);
+    //model_->setDirectionPaddle(n);
     model_->update();
 }
 
